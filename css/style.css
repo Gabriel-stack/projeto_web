@@ -9,10 +9,10 @@ html,body{
 header{
     background-size: 100%;
     padding: 5px 20px;
-    background-color: #6e099e;
+    background-color: #300453;
+    c
 }
 .conteudo-header{
-    
     width: 100%;
     display: inline-block;
 }
@@ -30,6 +30,7 @@ header{
 }
 .navegacao > ul {
     float: right;
+    clear: both;
 }
 .navegacao > ul > li > a{
     color: white;
@@ -37,7 +38,7 @@ header{
 }
 .navegacao > ul > li{
     margin: 15px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
     list-style-type: none;
     display: inline-block;
@@ -51,15 +52,10 @@ header{
 .conteudo-pagina{
     width: 100%;
 }
-.conteudo-pagina > .titulo-pagina > h1{
-    text-align: center;
-    color: #ebd026;
-    font-size: 75px;
-    font-family: 'Permanent Marker', cursive;
-}
+
 .conteudo-pagina > .imagem-home{
     width: 50%;
-    display: inline-block;
+    display: inline;
 }
 .conteudo-pagina > .imagem-home > img{
     width: 575px;
@@ -69,24 +65,35 @@ header{
     margin-top: 50px;
     width: 50%;
     display: inline-block;
-    float: right;
-    clear: both;
+}
+.conteudo-pagina > .slogan > h1{
+    left: 10px;
+    text-decoration-line: underline;
+    text-align: center;
+    color: #7413ac;
+    font-size: 120px;
+    font-family: 'Bangers', cursive;
+
 }
 .conteudo-pagina > .slogan > p{
+    position: relative;
+    right: 30px;
     font-family: 'Roboto', sans-serif;
-    line-height: 4ch;
+    line-height: 2ch;
     font-weight: bold;
     text-align: center;
     margin: 100px 80px;
     font-size: 20px;
 }
-.conteudo-pagina > .slogan > a{
-    padding-bottom: 50px;
+.conteudo-pagina > .slogan form{
+    position: relative;
+    text-align: center;
 }
-.conteudo-pagina > .slogan > a > button{
+.conteudo-pagina > .slogan form > button{
+    cursor: pointer;
     position: relative;
     bottom: 90px;
-    left: 70px;
+    right: 60px;
     text-align: center;
     color: white;
     font-weight: bolder;
@@ -98,23 +105,57 @@ header{
     border: 1px solid;
     border-radius: 20px;
 }
-
+.conteudo-pagina > .proxima-sessao{
+    height: 48px;
+    text-align: center;
+}
+.conteudo-pagina > .proxima-sessaoa > a{
+    width: 100%;
+}
+.conteudo-pagina > a > i{
+    padding-top: 5px;
+    color: teal;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+}
+.info > .carac{
+    box-shadow: 5px 0px 3px #cccccc;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    display: inline-block;
+    width: 33%;
+    height: 319px;
+    margin-bottom: 20px;
+}
+.info > .carac > img{
+    width: 200px;
+    height: 200px;
+}
+.info > .carac > p{
+    position: absolute;
+    padding: 0 50px;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
 .rodape{
     background-size: 100%;
-    background-color: #6e099e;
+    background-color: #886D8C;
     color: #ffffff;
-    position: relative;
-    font-family: 'verdana';
+    font-family: 'Roboto';
+    height: 160px;
 }
 .rodape > h3{
-    color: #fffff;
+    color:  #ffffff;
     font-size: 20px;
     margin-left: 50%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    margin-bottom: 15px;
 }
 .rodape > p{
-    color: #fffff;
+    color:  #ffffff;
     font-size: 15px;
     margin-left: 46%;
 }
@@ -123,9 +164,20 @@ header{
     left: 5%;
     right: 5%;
     width: 90%;
-    color: #fffff;
+    border-color:  #ffffff;
 }
 .rodape > #redes-sociais{
+    position: relative;
+    right: 10px;
+    top: 5px;
     display: inline-block;
     float: right;
+}
+.rodape > #redes-sociais > a > i{
+    position: relative;
+}
+.rodape >i{
+    position: relative;
+    left: 5px;
+    margin-top: 20px;
 }
