@@ -1,0 +1,40 @@
+.cadastro{
+    position: relative;
+    margin-top: 60px;
+	margin-bottom: 60px;
+    text-align: center;
+	justify-content: center;
+}
+.cadastro > .formulario{
+    display: inline-block;
+    max-width: 400px;
+    width: 30%;
+	box-shadow: 1px  2px 1px 2px #cccccc;
+}
+.cadastro > .formulario > form > h3{
+	position: relative;
+	font-size: 25px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+.cadastro > .formulario > form > input{
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+.cadastro > .formulario > form > button{
+	position: relative;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-align: center;
+    color: white;
+    font-weight: bolder;
+	width: 170px;
+    height: 46px;
+    background-image: linear-gradient(to right,#a71aeb, #317beb);
+    border: 1px solid;
+    border-radius: 8px;
+}

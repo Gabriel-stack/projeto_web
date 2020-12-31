@@ -1,65 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html,body{
-    height: 100%;
-}
-header{
-    background-size: 100%;
-    padding: 5px 20px;
-    background-color: #300453;
-    c
-}
-.conteudo-header{
-    width: 100%;
-    display: inline-block;
-}
-.imagem{
-    display: inline-block;
-}
-.imagem > a > img{
-    display: inline-block;
-    margin:0 20px;
-    width: 60px;
-    height: 60px;
-}
-.navegacao{
-    display: inline;
-}
-.navegacao > ul {
-    float: right;
-    clear: both;
-}
-.navegacao > ul > li > a{
-    color: white;
-    text-decoration: none;
-}
-.navegacao > ul > li{
-    margin: 15px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: bold;
-    list-style-type: none;
-    display: inline-block;
-}
-.navegacao  > ul > li:hover{
-    font-size: 15px;
-    transition-duration: 0.2s;
-    cursor: pointer;
-    border-bottom: 2px solid ;
-}
 .conteudo-pagina{
     width: 100%;
 }
-
 .conteudo-pagina > .imagem-home{
     width: 50%;
     display: inline;
 }
 .conteudo-pagina > .imagem-home > img{
-    width: 575px;
-    height: 397px;
+   width: 500px;
+   height: 400px;
 }
 .conteudo-pagina > .slogan{
     margin-top: 50px;
@@ -85,22 +33,17 @@ header{
     margin: 100px 80px;
     font-size: 20px;
 }
-.conteudo-pagina > .slogan form{
-    position: relative;
+.conteudo-pagina > slogan > a{
     text-align: center;
 }
-.conteudo-pagina > .slogan form > button{
+.conteudo-pagina > .slogan > a > button{
     cursor: pointer;
-    position: relative;
-    bottom: 90px;
-    right: 60px;
     text-align: center;
     color: white;
     font-weight: bolder;
     width: 170px;
     height: 46px;
     margin: 0 170px;
-    /*background-color: #a71aeb;*/
     background-image: linear-gradient(to right,#a71aeb, #317beb);
     border: 1px solid;
     border-radius: 20px;
@@ -138,46 +81,4 @@ header{
     padding: 0 50px;
     font-family: 'Roboto', sans-serif;
     text-align: justify;
-}
-.rodape{
-    background-size: 100%;
-    background-color: #886D8C;
-    color: #ffffff;
-    font-family: 'Roboto';
-    height: 160px;
-}
-.rodape > h3{
-    color:  #ffffff;
-    font-size: 20px;
-    margin-left: 50%;
-    position: relative;
-    top: 10px;
-    margin-bottom: 15px;
-}
-.rodape > p{
-    color:  #ffffff;
-    font-size: 15px;
-    margin-left: 46%;
-}
-.rodape > hr{
-    position: relative;
-    left: 5%;
-    right: 5%;
-    width: 90%;
-    border-color:  #ffffff;
-}
-.rodape > #redes-sociais{
-    position: relative;
-    right: 10px;
-    top: 5px;
-    display: inline-block;
-    float: right;
-}
-.rodape > #redes-sociais > a > i{
-    position: relative;
-}
-.rodape >i{
-    position: relative;
-    left: 5px;
-    margin-top: 20px;
 }

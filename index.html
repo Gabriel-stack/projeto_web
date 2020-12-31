@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -23,22 +25,21 @@
                 <nav class="navegacao">
                     <ul>
                         <li><a href="index.html">INÍCIO</a></li>
-                        <li><a href=".html">SOBRE</a></li>
-                        <li><a href=".html">ENTRAR</a></li>
+                        <li><a href="sobre.html">SOBRE</a></li>
+                        <li><a href="Login.html">LOGIN</a></li>
                     </ul>
                 </nav>
             </div>
     </header>
     <div class="conteudo-pagina">
-            <div class="imagem-home">
-                <img src="img/fundo.jpg" alt="pilha de livros com pessoas em cima">
-            </div>
             <div class="slogan">
                 <h1>FILE NOTE</h1>
                 <p>Faça as suas anotações diárias sem perder tempo.</p>
-                <form method="get" action="/cadastro.html">
-                    <button type="submit">Comece agora!</button>
-                </form>
+                <a href="cadastro.html"><button type="submit" name="btn_cadastrar" value="">Comece agora!</button></a>
+            </div>
+            <div class="imagem-home">
+                <!-- <img src="img/fundo.jpg" alt="pilha de livros com pessoas em cima"> -->
+                <img src="img/postit.png" alt="">
             </div>
             <div class="proxima-sessao">
             <a href="#sessao-um"><i class="fas fa-chevron-circle-down fa-3x"></i></a>
@@ -61,11 +62,13 @@
 
 </body>
 <footer class="rodape">
-    <h3>CONTATO</h3>
-    <p>
-        E-mail: filenote@gmail.com<br>
-        WhatsApp: (00) 99999-9999
-    </p>
+    <div class="info">
+        <h3>CONTATO</h3>
+        <p>
+            E-mail: filenote@gmail.com<br>
+            WhatsApp: (00) 99999-9999
+        </p>
+    </div>
     <hr style="margin: 20px 0;">
     <i class="far fa-copyright"> 2020 FILE NOTE</i>
     <div id="redes-sociais">
