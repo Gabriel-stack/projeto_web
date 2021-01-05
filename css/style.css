@@ -62,22 +62,24 @@
     width: 48px;
     height: 48px;
 }
+
 .info > .carac{
-    box-shadow: 5px 0px 3px #cccccc;
-    position: relative;
-    margin-top: 50px;
-    text-align: center;
-    display: inline-block;
-    width: 33%;
-    height: 319px;
-    margin-bottom: 20px;
+  display: inline-block;
+  box-shadow: 5px 0px 3px #cccccc;
+  margin-top: 50px;
+  text-align: center;
+  width: 33.3%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.info > .carac:nth-of-type(3){
+    padding-right: -4px;
 }
 .info > .carac > img{
     width: 200px;
     height: 200px;
 }
 .info > .carac > p{
-    position: absolute;
     padding: 0 50px;
     font-family: 'Roboto', sans-serif;
     text-align: justify;

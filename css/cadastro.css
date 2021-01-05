@@ -8,7 +8,7 @@
 .cadastro > .formulario{
     display: inline-block;
     max-width: 400px;
-    width: 30%;
+    width: 80%;
 	box-shadow: 1px  2px 1px 2px #cccccc;
 }
 .cadastro > .formulario > form > h3{
@@ -18,10 +18,17 @@
     padding-top: 20px;
 }
 .cadastro > .formulario > form > input{
+	padding: 10px 7px;
 	position: relative;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	font-size: 15px;
+	border-radius: 5px;
+	border-width: 1px;
+	width: 80%;
+}
+.cadastro > .formulario > form > input:focus{
+	outline: none;
 }
 .cadastro > .formulario > form > button{
 	position: relative;

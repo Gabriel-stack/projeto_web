@@ -1,47 +1,58 @@
 .rodape{
+    position: relative;
+    width: 100%;
     background-size: 100%;
-    background-color: #886D8C;
+    text-align: center;
+    background-color: rgb(70, 53, 85);
     color: #ffffff;
     font-family: 'Roboto';
-    height: 160px;
-    text-align: center;
 }
 .rodape > .info{
-    display: inline-block;
+    padding-top: 10px;
 }
 .rodape > .info > h3{
-    color:  #ffffff;
-    font-size: 20px;
     position: relative;
-    text-align: center;
-    margin-top: 10px;
     margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    color:  #ffffff;
 }
 .rodape > .info > p{
-    color:  #ffffff;
-    font-size: 15px;
     text-align: center;
+    top: 100px;
+    font-size: 15px;
+    color:  #ffffff;
 }
-.rodape > hr{
+.rodape > #linha{
+    padding-bottom: 20px;
+}
+.rodape > #linha > hr{
     position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
     left: 5%;
-    right: 5%;
     width: 90%;
     border-color:  #ffffff;
 }
-.rodape > #redes-sociais{
-    position: relative;
-    right: 10px;
-    top: 5px;
+.rodape > .detalhes{
     display: inline-block;
-    float: right;
 }
-.rodape > #redes-sociais > a > i{
-    position: relative;
+.rodape > .detalhes > #redes-sociais{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
 }
-.rodape > i{
-    position: relative;
+.rodape > .detalhes > #redes-sociais > a > #twitter{
+    color: cyan;
+}
+.rodape > .detalhes > #redes-sociais > a > #facebook{
+    color: blue;
+}
+.rodape > .detalhes > #redes-sociais > a > #instagram{
+    color: salmon;
+}
+.rodape > .detalhes > i{
+    position: absolute;
     left: 5px;
-    float: left;
-    margin-top: 20px;
+    bottom: 5px;
 }

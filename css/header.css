@@ -7,10 +7,10 @@ html,body{
     height: 100%;
 }
 header{
-    box-shadow: 0 2px 0 #cccccc;
+    box-shadow: 0 1px 0 #cccccc;
     background-size: 100%;
     padding: 5px 20px;
-    background-color: #ffffff;
+    background-color: #f9f2ff;
 }
 .conteudo-header{
     width: 100%;
@@ -46,7 +46,7 @@ header{
 }
 .navegacao  > ul > li:hover{
     font-size: 15px;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     cursor: pointer;
     border-bottom: 2px solid ;
 }
