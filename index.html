@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -15,32 +15,28 @@
     <title>Bem-vindo!</title>
 </head>
 <body>
-    <header>
-        <div class="conteudo-header">
+    <header class="conteudo-header">
             <div class="imagem">
                 <a href="index.html">
-                    <img src="../img/logotipo.png"></img>
+                    <img class ="logo" src="../img/logotipo.png"></img>
                 </a>
             </div>
                 <nav class="navegacao">
+                    <i class="fas fa-bars"></i>
                     <ul>
                         <li><a href="index.html">INÍCIO</a></li>
                         <li><a href="sobre.html">SOBRE</a></li>
                         <li><a href="Login.html">LOGIN</a></li>
                     </ul>
                 </nav>
-            </div>
     </header>
     <div class="conteudo-pagina">
             <div class="slogan">
                 <h1>FILE NOTE</h1>
-                <p>Faça as suas anotações diárias sem perder tempo.</p>
                 <a href="cadastro.html"><button type="submit" name="btn_cadastrar" value="">Comece agora!</button></a>
             </div>
-            <div class="imagem-home">
-                <!-- <img src="img/fundo.jpg" alt="pilha de livros com pessoas em cima"> -->
-                <img src="img/postit.png" alt="">
-            </div>
+                <!-- <img src="img/fundo.jpg" alt="pilha de livros com pessoas em cima" class="imagem-home"> -->
+                <p class="imagem-home">Faça as suas anotações diárias sem perder tempo.</p>
             <div class="proxima-sessao">
             <a href="#sessao-um"><i class="fas fa-chevron-circle-down fa-3x"></i></a>
         </div>
