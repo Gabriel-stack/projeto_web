@@ -20,9 +20,13 @@ header{
     align-items: center;
 }
 .imagem > a > .logo{
+    display: block;
     font-family: 'Source Sans Pro', sans-serif;
     width: 60px;
     height: 60px;
+}
+.imagem > a > .logo-mobile{
+    display: none;
 }
 .navegacao > i{
     display: none;
@@ -59,8 +63,17 @@ header{
 @media (max-width: 941px){
     .navegacao > i{
         display:block;
+        color: #2C3E50;
     }
     .navegacao > ul {
         display: none;
     }
+    .imagem > a > .logo{
+        display: none;
+    }
+    .imagem > a > .logo-mobile{
+        display: block;
+        width: 250px;
+        height: 70px;
+    } 
 }

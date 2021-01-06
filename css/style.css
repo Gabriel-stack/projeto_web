@@ -7,15 +7,8 @@
     margin-bottom: 10px;
     height: 87vh;
 }
-/* .conteudo-pagina > .imagem-home{
-    order: 1;
-    width: 400px;
-   height: 80%;
-   margin-left: 42px;
-   max-width: 700px;
-} */
+
 .conteudo-pagina > .slogan{
-    order: 2;
     margin-top: 50px;
     margin-bottom: 20px;
     width: 500px;
@@ -32,11 +25,7 @@
     font-family: 'Bangers', cursive;
 
 }
-/* .conteudo-pagina > .slogan > p{
-  
-} */
-.conteudo-pagina > .imagem-home{
-    order: 1;
+.conteudo-pagina > .frase-pagina{
     width: 20ch;
     position: relative;
     font-family: 'Roboto', sans-serif;
@@ -64,7 +53,6 @@
     border-radius: 10px;
 }
 .conteudo-pagina > .proxima-sessao{
-    order: 3;
     width: 100%;
     display: block;
     overflow: unset;
@@ -109,7 +97,7 @@
 }
 
 @media(max-width: 941px){
-    .imagem-home{
+    .conteudo-pagina > .slogan{
         display: none;
     }
     .conteudo-pagina{
