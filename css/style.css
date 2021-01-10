@@ -5,68 +5,76 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    height: 87vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 570px;
+    height: auto;
 }
 
-.conteudo-pagina > .slogan{
+.conteudo-pagina > .imagem-principal{
+    position: relative;
     margin-top: 50px;
     margin-bottom: 20px;
-    width: 500px;
+    width: 50%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.conteudo-pagina > .slogan > h1{
+.conteudo-pagina > .imagem-principal > h1{
     text-align: center;
-    width: 100%;
-    color: #7413ac;
-    font-size: 110px;
+    color: #eac503;
+    font-size: 160px;
     font-family: 'Bangers', cursive;
 
 }
-.conteudo-pagina > .frase-pagina{
-    width: 20ch;
+.conteudo-pagina > .principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+    width: 498px;
+}
+.conteudo-pagina > .principal > p{
+    width: 100%;
     position: relative;
     font-family: 'Roboto', sans-serif;
-    line-height: 2cm;
-    font-weight: bold;
+    line-height: 2;
+    font-weight: 900;
     text-align: center;
-    margin: 100px 80px;
     font-size: 40px;
     letter-spacing: 2px;
     color: #ffffff;
+    margin-bottom: 15px;
 }
-.conteudo-pagina > slogan > a{
+.conteudo-pagina > .principal > a{
     justify-content: center;
     text-align: center;
 }
-.conteudo-pagina > .slogan > a > button{
+.conteudo-pagina > .principal > a > button{
     cursor: pointer;
     text-align: center;
     color: white;
     font-weight: bolder;
     width: 170px;
     height: 46px;
-    background-image: linear-gradient(to right,#a71aeb, #317beb);
+    background-color: #f65a00;
     border: 1px solid;
     border-radius: 10px;
 }
 .conteudo-pagina > .proxima-sessao{
     width: 100%;
-    display: block;
-    overflow: unset;
-    justify-content: center;
-    height: 48px;
+    justify-content:center;
     text-align: center;
 }
 .conteudo-pagina > .proxima-sessao > a{
     justify-content: center;
     width: 100%;
 }
-.conteudo-pagina > a > i{
+.conteudo-pagina > .proxima-sessao > a > i{
     padding-top: 5px;
-    color: teal;
+    color: white;
     text-align: center;
     width: 48px;
     height: 48px;
@@ -96,15 +104,15 @@
     text-align: justify;
 }
 
-@media(max-width: 941px){
-    .conteudo-pagina > .slogan{
+@media(max-width: 995px){
+    .conteudo-pagina > .imagem-principal{
         display: none;
     }
     .conteudo-pagina{
         display: flex;
         justify-content: center;
     }
-    .slogan{
+    .imagem-principal{
         width: 100%;
     }
 }

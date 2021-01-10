@@ -12,33 +12,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header>
-        <div class="conteudo-header">
-            <div class="imagem">
-                <a href="index.html">
-                    <img src="img/logotipo.png" class="logo"></img>
-                </a>
-            </div>
-                <nav class="navegacao">
-                    <ul>
-                        <li><a href="index.html">INÍCIO</a></li>
-                        <li><a href="sobre.html">SOBRE</a></li>
-                        <li><a href="login.html">LOGIN</a></li>
-                    </ul>
-                </nav>
-            </div>
-    </header>
+    <header class="conteudo-header">
+        <div class="imagem">
+            <a href="index.html">
+                <img class ="logo" src="img/logo-nome-nova.png"></img>
+            </a>
+        </div>
+            <nav class="navegacao">
+                <i class="fas fa-bars fa-2x"></i>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="sobre.html">SOBRE</a></li>
+                    <li><a href="Login.html">LOGIN</a></li>
+                </ul>
+            </nav>
+</header>
     <div class="cadastro">
         <div class="formulario">
             <form method="" action="">
                 <h3>Cadastrar</h3>
-                <input type="text" name="nome" value="" placeholder="Nome" required><br>
-                <input type="text" name="sobrenome" value="" placeholder="Sobrenome" required><br>
-                <input type="email" name="email" value="" placeholder="E-mail" required><br>
-                <input type="password" name="senha" value="" placeholder="Senha" required><br>
-                <input type="password" name="repetir_senha" value="" placeholder="Repetir senha" required><br>
-                <input type="tel" name="telefone" value="" placeholder="Telefone" required><br>
-                <label><input type="checkbox" name="termos" value="" required> Aceito os termos de licença<br></label>
+                <label for="">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="nome" value="" placeholder="Nome" required>
+                </label><br>
+                <label for="">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" name="email" value="" placeholder="E-mail" required>
+                </label><br>
+                <label for="">  
+                    <i class="fas fa-key"></i>   
+                    <input type="password" name="senha" value="" placeholder="Senha" required>
+                </label><br>
+                <label for="">
+                    <i class="fas fa-key"></i>
+                    <input type="password" name="repetir_senha" value="" placeholder="Repetir senha" required>
+                </label><br>
+               <label for="">
+                <i class="fas fa-phone"></i>
+                <input type="tel" name="telefone" value="" placeholder="Telefone" required>
+               </label><br>
+                <label>
+                    <input type="checkbox" name="termos" value="" required> Aceito os termos de licença<br>
+                </label>
                 <button type="submit" name="btn_cadastrar" value="">Cadastrar</button>
             </form>
         </div>

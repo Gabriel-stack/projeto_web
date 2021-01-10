@@ -1,6 +1,7 @@
 .rodape{
     position: relative;
     width: 100%;
+    bottom: 0px;
     background-size: 100%;
     text-align: center;
     background-color: rgb(70, 53, 85);
@@ -11,6 +12,7 @@
     padding-top: 10px;
 }
 .rodape > .info > h3{
+    width: 100%;
     position: relative;
     margin-bottom: 10px;
     text-align: center;

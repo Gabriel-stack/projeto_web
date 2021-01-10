@@ -17,18 +17,33 @@
     margin-bottom: 10px;
     padding-top: 20px;
 }
-.cadastro > .formulario > form > input{
+.cadastro > .formulario > form > label{
 	padding: 10px 7px;
-	position: relative;
+	border-radius: 7px;
+	border:0.2px solid;
+	width: 80%;
+	border-color: #595464;
+}
+.cadastro > .formulario > form > label:nth-of-type(6){
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.cadastro > .formulario > form > label >input{
+	border: none;
+	width: inherit;
+	padding: 10px 7px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	font-size: 15px;
-	border-radius: 5px;
-	border-width: 1px;
-	width: 80%;
 }
-.cadastro > .formulario > form > input:focus{
+
+.cadastro > .formulario > form > label >input:focus{
 	outline: none;
+}
+.cadastro > .formulario > form > label >input[type=checkbox]{
+	width: min-content;
 }
 .cadastro > .formulario > form > button{
 	position: relative;

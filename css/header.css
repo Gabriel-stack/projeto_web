@@ -22,8 +22,8 @@ header{
 .imagem > a > .logo{
     display: block;
     font-family: 'Source Sans Pro', sans-serif;
-    width: 60px;
-    height: 60px;
+    width: 200px;
+    height: 102px;
 }
 .imagem > a > .logo-mobile{
     display: none;
@@ -68,12 +68,4 @@ header{
     .navegacao > ul {
         display: none;
     }
-    .imagem > a > .logo{
-        display: none;
-    }
-    .imagem > a > .logo-mobile{
-        display: block;
-        width: 250px;
-        height: 70px;
-    } 
 }

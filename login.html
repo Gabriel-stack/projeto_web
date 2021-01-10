@@ -10,33 +10,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> <!-- Logo das redes sociais no rodapé -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
-	<header>
-        <div class="conteudo-header">
-            <div class="imagem">
-                <a href="index.html">
-                    <img src="img/logotipo.png" class="logo"></img>
-                </a>
-            </div>
-                <nav class="navegacao">
-                    <ul>
-                        <li><a href="index.html">INÍCIO</a></li>
-                        <li><a href="sobre.html">SOBRE</a></li>
-                        <li><a href="login.html">LOGIN</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <header class="conteudo-header">
+        <div class="imagem">
+            <a href="index.html">
+                <img class ="logo" src="img/logo-nome-nova.png"></img>
+            </a>
+        </div>
+            <nav class="navegacao">
+                <i class="fas fa-bars fa-2x"></i>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="sobre.html">SOBRE</a></li>
+                    <li><a href="Login.html">LOGIN</a></li>
+                </ul>
+            </nav>
     </header>
     <div class="login">
         <div class="formulario">
             <form method="POST" action="">
                 <h3>Login</h3>
-                <input type="email" name="email" placeholder="E-mail" required><br>
-                <input type="password" name="senha" placeholder="Senha" required><br>
-                <label><input type="checkbox" name="auto_login" required> Manter-me conectado</label><br>
+                <label for="email">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" name="email" placeholder="E-mail" required>   
+                </label><br>
+                <label for="senha">
+                    <i class="fas fa-key"></i>
+                    <input type="password" name="senha" placeholder="Senha" required>    
+                </label><br>
+                <label>
+                    <input type="checkbox" name="auto_login" required> Manter-me conectado
+                </label><br>
                 <a href="redefinir_senha.html">Esqueci minha senha</a><br>
-                <!-- Entrar com o Google -->
                 <button type="submit" name="btn_login" value="">Login</button>
                 <br>ou<br>
             </form>

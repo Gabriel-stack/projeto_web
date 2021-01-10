@@ -15,27 +15,38 @@
     margin-bottom: 10px;
     padding-top: 20px;
 }
-.login > .formulario > form > input{
+.login > .formulario > form > label{
 	padding: 10px 7px;
-	position: relative;
+	border-radius: 7px;
+	border:0.2px solid;
+	width: 80%;
+	border-color: #595464;
+}
+.login > .formulario > form > label > input{
+	width: inherit;
+	padding: 10px 7px;
+	border: none;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	font-size: 15px;
-	border-radius: 5px;
-	border-width: 1px;
-	width: 80%;
 }
-.login > .formulario > form > input:focus{
+.login > .formulario > form > label >input:focus{
 	outline: none;
 }
-.login > .formulario > form > a{
+.login > .formulario > form >  a{
 	position: relative;
 	font-size: 13px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-.login > .formulario > form > input[type=checkbox]{
-	width: 100%;
+.login > .formulario > form > label:nth-of-type(3){
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+.login > .formulario > form > label > input[type=checkbox]{
+	justify-content: left;
+	width: min-content;
 }
 .login > .formulario > form > button{
 	position: relative;
@@ -48,9 +59,9 @@
     font-weight: bolder;
     width: 170px;
     height: 46px;
-    background-image: linear-gradient(to right,#a71aeb, #317beb);
-    border: 1px solid;
-    border-radius: 8px;
+	background-image: linear-gradient(to right,#a71aeb, #317beb);
+	border:none;
+    border-radius: 7px;
 }
 .login > .formulario > a > button{
 	position: relative;
