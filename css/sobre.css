@@ -24,19 +24,14 @@
 	order: 2;
 }
 .labels > .conteudo{
-	background-image: linear-gradient(to right, #00bcd4, #e91e63);
 	position: relative;
-	/*margin-left: 5%;
-	margin-right: 5%;*/
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 	padding: 20px 20px 20px 20px;
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;
-	border: 2px solid #cccccc;
-	/*background-color: rgb(212, 192, 166);*/
 }
 .labels > .conteudo > .img{
 	position: relative;
@@ -49,7 +44,7 @@
 .labels > .conteudo > .img > img{
 	height: 300px;
 	width: 400px;
-	border: 2px solid #cccccc;
+	border: 1px solid #cccccc;
 }
 .labels > .conteudo > .texto{
 	position: relative;
@@ -64,9 +59,6 @@
 	font-size: 20px;
 	font-weight: bold;
 	font-family: 'Roboto';
-	/*position: relative;
-	top: 50%;
-	transform: translateY(-50%);*/
 }
 
 @media(max-width: 813px){

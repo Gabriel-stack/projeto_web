@@ -1,6 +1,6 @@
 .cadastro{
     position: relative;
-    margin-top: 60px;
+	margin-top: 60px;
 	margin-bottom: 60px;
     text-align: center;
 	justify-content: center;
@@ -24,13 +24,19 @@
 	width: 80%;
 	border-color: #595464;
 }
+.cadastro > .formulario > form > #termos{
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 13px;
+	text-decoration: none;
+}
 .cadastro > .formulario > form > label:nth-of-type(6){
 	margin: 0;
 	padding: 0;
 	border: none;
 }
-
-.cadastro > .formulario > form > label >input{
+.cadastro > .formulario > form > label > input{
 	border: none;
 	width: inherit;
 	padding: 10px 7px;
@@ -38,11 +44,10 @@
 	margin-bottom: 5px;
 	font-size: 15px;
 }
-
-.cadastro > .formulario > form > label >input:focus{
+.cadastro > .formulario > form > label > input:focus{
 	outline: none;
 }
-.cadastro > .formulario > form > label >input[type=checkbox]{
+.cadastro > .formulario > form > label > input[type=checkbox]{
 	width: min-content;
 }
 .cadastro > .formulario > form > button{
@@ -59,4 +64,34 @@
     background-image: linear-gradient(to right,#a71aeb, #317beb);
     border: 1px solid;
     border-radius: 8px;
+}
+#msg-sucesso{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	height: 25px;
+    max-width: 400px;
+    width: 80%;
+	margin-top: 10px;
+	padding-top: 2.5px;
+	top: 125px;
+	background-color: rgba(57, 207, 11, 0.6);
+	border: 1px solid rgb(34,139,34);
+	border-radius: 2px;
+}
+.msg-erro{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	height: 25px;
+    max-width: 400px;
+    width: 80%;
+	margin-top: 10px;
+	padding-top: 2.5px;
+	top: 125px;
+	background-color: rgba(230, 22, 22, 0.6);
+	border: 1px solid rgb(162,42,42,0.5);
+	border-radius: 2px;
 }

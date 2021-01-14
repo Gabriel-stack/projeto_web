@@ -1,6 +1,7 @@
 .login{
     position: relative;
-	margin: 60px 0;
+	margin-top: 60px;
+	margin-bottom: 60px;
 	text-align: center;
 }
 .login > .formulario{
@@ -30,14 +31,15 @@
 	margin-bottom: 5px;
 	font-size: 15px;
 }
-.login > .formulario > form > label >input:focus{
+.login > .formulario > form > label > input:focus{
 	outline: none;
 }
-.login > .formulario > form >  a{
+.login > .formulario > form >  #novasenha{
 	position: relative;
-	font-size: 13px;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	font-size: 13px;
+	text-decoration: none;
 }
 .login > .formulario > form > label:nth-of-type(3){
 	margin: 0;
@@ -77,4 +79,19 @@
     background-image: linear-gradient(to right,#a71aeb, #317beb);
     border: 1px solid;
     border-radius: 8px;
+}
+.msg-erro{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	height: 25px;
+    max-width: 400px;
+    width: 80%;
+	margin-top: 10px;
+	padding-top: 2.5px;
+	top: 125px;
+	background-color: rgba(230, 22, 22, 0.6);
+	border: 1px solid rgb(162,42,42,0.5);
+	border-radius: 2px;
 }
