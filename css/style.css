@@ -61,7 +61,7 @@
     border: 1px solid;
     border-radius: 10px;
 }
-.conteudo-pagina > .proxima-sessao{
+/* .conteudo-pagina > .proxima-sessao{
     width: 100%;
     justify-content:center;
     text-align: center;
@@ -76,7 +76,7 @@
     text-align: center;
     width: 48px;
     height: 48px;
-}
+} */
 .info{
     display: flex;
     justify-content: space-around;
@@ -87,7 +87,7 @@
 }
 .info > .carac{
   display: inline-block;
-  box-shadow: 2px 2px 2px 2px #cccccc;
+  /* box-shadow: 2px 2px 2px 2px #cccccc; */
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;

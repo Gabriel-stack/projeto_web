@@ -20,7 +20,7 @@
     <header class="conteudo-header">
         <div class="imagem">
             <a href="../index.html">
-                <img class ="logo" src="../img/logo-nome-nova.png"></img>
+                <img class ="logo" src="../img/logo.png"></img>
             </a>
         </div>
             <nav class="navegacao">
@@ -48,10 +48,10 @@
                     <input type="checkbox" name="auto_login"> Manter-me conectado
                 </label><br>
                 <a id="novasenha" href="redefinir_senha.html">Esqueci minha senha</a><br>
-                <button type="submit" name="btn_login">Login</button>
-                <br>ou<br>
+                <button type="submit" name="btn_login">Login</button><br>
+                <span>ou</span>
             </form>
-            <a href="cadastro.php"><button type="submit" name="btn_cadastrar">Cadastrar</button></a>
+            <p>Não possui cadastro?<a href="cadastro.php">Cadastre-se!</a></p>
         </div>
     </div>
     <?php
@@ -59,7 +59,7 @@
 			$email = addslashes($_POST['email']);
 			$senha = addslashes($_POST['senha']);
 			if(!empty($email) && !empty($senha)){
-				$u->conectar("projeto_login","localhost","root","");
+				$u->conectar("usuario","localhost","root","");
 				if($u->msgErro == ""){
 					if($u->logar($email,$senha)){
 						header("location: notas.php");

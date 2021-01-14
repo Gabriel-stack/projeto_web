@@ -1,7 +1,7 @@
 <?php
     require_once 'usuarios.php';
     $u = new Usuario;
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +19,7 @@
     <header class="conteudo-header">
         <div class="imagem">
             <a href="../index.html">
-                <img class ="logo" src="../img/logo-nome-nova.png"></img>
+                <img class ="logo" src="../img/logo.png"></img>
             </a>
         </div>
         <nav class="navegacao">
@@ -55,9 +55,9 @@
                     <i class="fas fa-key"></i>
                     <input type="password" name="confsenha" maxlength="20" placeholder="Repetir senha" required>
                 </label><br>
-                <a id="termos" href="../termos_de_licenca.html">Leia sobre os termos de licença</a><br>
                 <label>
-                    <input type="checkbox" name="termos" required checked> Aceito os termos de licença<br>
+                    <input type="checkbox" name="termos" required checked> Ao se inscrever no FileNote, você concorda com os Termos de Serviço e Política de Privacidade do FileNote.
+<br>
                 </label>
                 <button type="submit" name="btn_cadastrar">Cadastrar</button>
             </form>
@@ -71,7 +71,7 @@
 			$senha = addslashes($_POST['senha']);
 			$confsenha = addslashes($_POST['confsenha']);
 			if(!empty($nome) && !empty($email) && !empty($telefone) && !empty($senha) && !empty($confsenha)){
-				$u->conectar("projeto_login","localhost","root","");
+				$u->conectar("usuario","localhost","root","");
 				if($u->msgErro == ""){
 					if($senha == $confsenha){
 						if($u->cadastrar($nome, $email, $telefone, $senha)){
@@ -111,7 +111,7 @@
 			}
 		}
     ?>
-</body>
+    </body>
 <footer class="rodape">
     <div class="info">
         <h3>CONTATO</h3>

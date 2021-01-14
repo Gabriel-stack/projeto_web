@@ -1,3 +1,6 @@
+body{
+	background-color: #261347;
+}
 .cadastro{
     position: relative;
 	margin-top: 60px;
@@ -9,20 +12,21 @@
     display: inline-block;
     max-width: 400px;
     width: 80%;
-	box-shadow: 1px  2px 1px 2px #cccccc;
 }
 .cadastro > .formulario > form > h3{
 	position: relative;
-	font-size: 25px;
+	font-size: 30px;
     margin-bottom: 10px;
-    padding-top: 20px;
+	padding-top: 20px;
+	color: #ffffff;
 }
 .cadastro > .formulario > form > label{
 	padding: 10px 7px;
 	border-radius: 7px;
 	border:0.2px solid;
 	width: 80%;
-	border-color: #595464;
+	border-color: #ffffff;
+	margin: 14px 0;
 }
 .cadastro > .formulario > form > #termos{
 	position: relative;
@@ -32,9 +36,11 @@
 	text-decoration: none;
 }
 .cadastro > .formulario > form > label:nth-of-type(6){
+	width: 80%;
 	margin: 0;
 	padding: 0;
 	border: none;
+	color: #ffffff;
 }
 .cadastro > .formulario > form > label > input{
 	border: none;
@@ -43,12 +49,24 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 	font-size: 15px;
+	background-color: transparent;
+	color: #ffffff;
 }
 .cadastro > .formulario > form > label > input:focus{
 	outline: none;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   background-color: transparent !important;
+}
 .cadastro > .formulario > form > label > input[type=checkbox]{
-	width: min-content;
+	width: max-content;
+	opacity: 100;
+}
+.cadastro > .formulario > form > label > i{
+	color: #ffffff;
 }
 .cadastro > .formulario > form > button{
 	position: relative;
@@ -59,9 +77,9 @@
 	text-align: center;
     color: white;
     font-weight: bolder;
-	width: 170px;
+	width: 80%;
     height: 46px;
-    background-image: linear-gradient(to right,#a71aeb, #317beb);
+	background-image: linear-gradient(to right,#f44336,#e91e63);
     border: 1px solid;
     border-radius: 8px;
 }
@@ -79,6 +97,7 @@
 	background-color: rgba(57, 207, 11, 0.6);
 	border: 1px solid rgb(34,139,34);
 	border-radius: 2px;
+	color: #ffffff;
 }
 .msg-erro{
 	position: absolute;
@@ -94,4 +113,5 @@
 	background-color: rgba(230, 22, 22, 0.6);
 	border: 1px solid rgb(162,42,42,0.5);
 	border-radius: 2px;
+	color: #ffffff;
 }

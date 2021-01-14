@@ -6,13 +6,10 @@
 html, body{
     height: 100%;
 }
-header{
-    box-shadow: 0 1px 0 #cccccc;
-    background-size: 100%;
-    padding: 5px 20px;
-    background-color: #ffffff;
-}
+
 .conteudo-header{
+    padding: 10px 0;
+    background-color: #261347;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -22,11 +19,8 @@ header{
 .imagem > a > .logo{
     display: block;
     font-family: 'Source Sans Pro', sans-serif;
-    width: 200px;
-    height: 102px;
-}
-.imagem > a > .logo-mobile{
-    display: none;
+    width: 189px;
+    height: 60px;
 }
 .navegacao > i{
     display: none;
@@ -46,11 +40,11 @@ header{
     display: inline-block;
     padding: 0 20px;
     border-right: 2px solid; 
-    border-color: #2C3E50;
+    border-color: #8894a0;
 }
 .navegacao > ul > li > a{
     font-weight: bolder;
-    color: #2C3E50;
+    color: #ffffff;
     text-decoration: none;
 }
 .navegacao  > ul > li:hover{
