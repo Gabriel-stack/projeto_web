@@ -2,13 +2,14 @@ body{
 	background-color: #261347;
 }
 .login{
-    position: relative;
-	margin-top: 60px;
-	margin-bottom: 60px;
-	text-align: center;
+	top: 80px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .login > .formulario{
-    display: inline-block;
+	text-align: center;
     max-width: 400px;
 	width: 80%;
 }
@@ -23,10 +24,9 @@ body{
 .login > .formulario > form > label{
 	padding: 10px 7px;
 	border-radius: 7px;
-	border:1px solid;
+	border: 1px solid;
 	width: 80%;
 	border-color: #ffffff;
-	
 }
 .login > .formulario > form > label > input{
 	width: inherit;
@@ -38,7 +38,6 @@ body{
 	background-color: transparent;
 	color: #ffffff;
 }
-
 .login > .formulario > form > label > input:focus{
 	outline: none;
 }
@@ -50,11 +49,20 @@ body{
 	text-decoration: none;
 }
 .login > .formulario > form > label:nth-of-type(3){
+	margin: 10px;
+	padding: 10px 0;
+	border: none;
+	text-align: right;
+}
+.login > .formulario > form > label > #novasenha{
+	width: inherit;
+	display: inline-block;
+}
+.login > .formulario > form > label:nth-of-type(4){
 	margin: 0;
 	padding: 0;
 	border: none;
 	color: #ffffff;
-
 }
 .login > .formulario > form > label > input[type=checkbox]{
 	justify-content: left;
@@ -78,21 +86,26 @@ body{
 	border:none;
     border-radius: 7px;
 }
-.login > .formulario > p, a, span{
+.login > .formulario > p > a{
+	color: cyan;
+	text-decoration: none;
+}
+.login > .formulario > form > span,
+.login > .formulario > p,
+.login > .formulario > form > label > a{
 	color: #ffffff;
 }
-
 .msg-erro{
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
 	text-align: center;
 	height: 25px;
-    max-width: 400px;
+    max-width: 350px;
     width: 80%;
 	margin-top: 10px;
 	padding-top: 2.5px;
-	top: 125px;
+	top: 110px;
 	background-color: rgba(230, 22, 22, 0.6);
 	border: 1px solid rgb(162,42,42,0.5);
 	border-radius: 2px;

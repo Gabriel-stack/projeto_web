@@ -1,3 +1,68 @@
-.config{
-    
+.conteudo{
+    display: grid;
+    grid-template-columns: 160px auto;
+    grid-template-rows: 80px auto;
+    grid-template-areas: "header header" "menu config";
+    height: 100%;
+}
+.conteudo-header{
+    grid-area: header;
+}
+
+.conteudo > .menu{
+    grid-area: menu;
+    background-color: #1F2861;
+    padding-top: 10px;
+}
+.conteudo > .menu > ul{
+    width: 100%;
+}
+.conteudo > .menu > ul > li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    width: 100%;
+    height: 20px;
+    cursor:pointer;
+    list-style-type: none;
+}
+.conteudo >.menu > ul > li > a{
+    color: white;
+}
+.conteudo >.menu > ul > li:hover{
+    transition: 100ms;
+    background-color: rgb(145, 171, 218);
+}
+.conteudo >.menu > i{
+    display: none;
+    color: #ffffff;
+}
+.conteudo > .config{
+    grid-area: config;
+    background-color: #c3c0c9;
+    padding: 10px;
+    display: flex;
+    align-content: start;
+    text-align: center;
+}
+.conteudo > .config > p{
+    color: black;
+    font-size: 30px;
+    width: 100%;
+}
+@media (max-width: 500px){
+    .conteudo{
+        display: grid;
+        grid-template-columns: 30px auto;
+        grid-template-rows: 80px auto;
+        grid-template-areas: "header header" "menu config";
+        height: 100%;
+    }
+    .conteudo > .menu{
+        overflow: hidden;
+    }
+    .conteudo >.menu > i{
+        color: #ffffff;
+    }
 }

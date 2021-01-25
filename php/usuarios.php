@@ -1,16 +1,16 @@
 <?php
 	Class Usuario{
 		private $pdo;
-		public $msgErro="";
+		public $msgErro = "";
 		public function conectar($nome, $host, $email, $senha){
 			global $pdo;
 			try{
 				$pdo = new PDO("mysql:dbname=".$nome.";host=".$host, $email, $senha);
 			}catch(PDOException $e){
-				$msgErro= $e->getMessage();
+				$msgErro = $e->getMessage();
 			}
 			catch(Exception $e){
-				$msgErro= $e->getMessage();
+				$msgErro = $e->getMessage();
 			}
 		}
 		public function cadastrar($nome, $email, $telefone, $senha){
