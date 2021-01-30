@@ -11,6 +11,27 @@ body{
     max-width: 400px;
     width: 80%;
 }
+
+
+.formulario > form > .user-avatar{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.cadastro > .formulario > form > .user-avatar{
+    background-image: url('../img/user-none.png');
+    background-size: cover;
+}
+.cadastro > .formulario > form > .user-avatar > label> input{
+    display: none;
+}
+
+
 .cadastro > .formulario > form > h3{
 	position: relative;
 	font-size: 30px;

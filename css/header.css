@@ -16,16 +16,20 @@ html, body{
     align-items: center;
 }
 .imagem > a > .logo{
-    display: block;
+    display: flex;
     font-family: 'Source Sans Pro', sans-serif;
     width: 189px;
     height: 60px;
+}
+.navegacao{
+    display: inline;
 }
 .navegacao > i{
     display: none;
 }
 .navegacao > ul {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -56,11 +60,20 @@ html, body{
 
 @media (max-width: 941px){
     .navegacao > i{
-        display:block;
+        display: inline;
         margin-right: 10px;
         color: #ffffff;
     }
     .navegacao > ul {
+        flex-direction: column;
         display: none;
+
+    }
+    .navegacao > ul > li{
+        width: 100vw;
+        text-align: center;
+        border: none;
+        width: 100%;
+        display: inline-block;
     }
 }

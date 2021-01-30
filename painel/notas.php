@@ -6,7 +6,7 @@
 	}else{
 		?>
 		<!DOCTYPE html>
-		<html>
+		<html lang="pt-br">
 		<head>
 			<title>Notas</title>
 			<meta charset="UTF-8">
@@ -51,6 +51,7 @@
 				</div>
 				<div class="notas">
 					<p>Seja Bem-Vindo ao ambiente das suas notas!</p>
+					<?php echo (session_encode())?>
 				</div>
 			</div>
 		</body>

@@ -6,7 +6,7 @@
 	}else{
         ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <title>perfil</title>
         <meta charset="UTF-8">
@@ -53,7 +53,7 @@
                     include ($pagina.'.php');
                 }else{
                 }
-                ?>
+            ?>
 
             </div>
         </div>

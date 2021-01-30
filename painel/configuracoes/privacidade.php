@@ -4,5 +4,6 @@
         <h3>PRIVACIDADE</h3>
         <input type ="password" placeholder="insira senha atual">
         <input type ="password" placeholder="insira nova senha">
+        <button type="submit" name="btn_salvar">Salvar</button>
     </form>
 </div>

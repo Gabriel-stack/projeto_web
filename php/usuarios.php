@@ -36,10 +36,14 @@
 			$sql->bindValue(":e", $email);
 			$sql->bindValue(":s", md5($senha));
 			$sql->execute();
-			if($sql->rowCount() > 0){
+			if($sql->rowCount() == 1){
 				$dado = $sql->fetch();
 				session_start();
 				$_SESSION['id'] = $dado['id'];
+				$_SESSION['nome'] = $dado['nome'];
+				$_SESSION['imagem'] = $dado['imagem'];
+				$_SESSION['telefone'] = $dado['telefone'];
+				$_SESSION['email'] = $dado['email'];
 				return true;
 			}else{
 				return false;

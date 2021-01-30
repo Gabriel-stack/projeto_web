@@ -55,7 +55,7 @@
 				$u->conectar("usuario","localhost","root","");
 				if($u->msgErro == ""){
 					if($u->logar($email,$senha)){
-						header("location: painel/notas.php");
+                        header("location: painel/notas.php");
 					}else{
                         ?>
                             <div class="msg-erro">
