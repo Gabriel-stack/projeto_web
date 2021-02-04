@@ -45,7 +45,7 @@
 }
 .conteudo > .menu{
     grid-area: menu;
-    background-color: #261347;
+    background-color: #1F2861;
     padding-top: 10px;
     display: grid;
     justify-content: center;

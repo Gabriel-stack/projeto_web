@@ -18,7 +18,7 @@
 <body>
     <header class="conteudo-header">
         <div class="imagem">
-            <a href="index.html">
+            <a href="index.php">
                 <img class ="logo" src="img/logo-branca.png"></img>
             </a>
         </div>
@@ -47,22 +47,13 @@
                     <i class="fas fa-key"></i>
                     <input type="password" name="confsenha" maxlength="20" placeholder="Repetir senha" required>
                 </label>
-
-
-                <div class="user-avatar" hidden>
-                    <label for="img-enviar">
-                        <input type="file" id="img-enviar" name="arquivo_atual">
-                        <i class="fas fa-edit fa-2x" id="img-enviar"></i>
-                    </label>
-                </div>
-
-
                 <label>
                     <!-- <a href="../termos.html">Ler os termos de uso</a><br> -->
                     <input type="checkbox" name="termos" required checked> Ao se inscrever no FileNote, você concorda com os Termos de Serviço e Política de Privacidade do FileNote.
                 </label>
                 <button type="submit" name="btn_cadastrar">Cadastrar</button>
             </form>
+            <p>Já possui cadastro? <a href="login.php">Faça login!</a></p>
         </div>
     </div>
     <?php
@@ -72,12 +63,11 @@
 			$telefone = addslashes($_POST['telefone']);
 			$senha = addslashes($_POST['senha']);
             $confsenha = addslashes($_POST['confsenha']);
-            $imagem = $_POST['arquivo_atual'];
 			if(!empty($nome) && !empty($email) && !empty($telefone) && !empty($senha) && !empty($confsenha)){
 				$u->conectar("usuario","localhost","root","");
 				if($u->msgErro == ""){
 					if($senha == $confsenha){
-						if($u->cadastrar($nome, $email, $telefone, $senha, $imagem)){
+						if($u->cadastrar($nome, $email, $telefone, $senha)){
                             ?>
                                 <div id="msg-sucesso">
                                     Cadastrado com sucesso!

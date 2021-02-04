@@ -1,5 +1,6 @@
 <?php
-	Class Usuario{
+session_start();
+	class Usuario{
 		private $pdo;
 		public $msgErro = "";
 		public function conectar($nome, $host, $email, $senha){
@@ -32,18 +33,17 @@
 		}
 		public function logar($email, $senha){
 			global $pdo;
-			$sql = $pdo->prepare("SELECT id FROM conta WHERE email = :e AND senha = :s");
+			$sql = $pdo->prepare("SELECT * FROM conta WHERE email = :e AND senha = :s");
 			$sql->bindValue(":e", $email);
 			$sql->bindValue(":s", md5($senha));
 			$sql->execute();
-			if($sql->rowCount() == 1){
+			if($sql->rowCount() > 0){
 				$dado = $sql->fetch();
-				session_start();
 				$_SESSION['id'] = $dado['id'];
 				$_SESSION['nome'] = $dado['nome'];
-				$_SESSION['imagem'] = $dado['imagem'];
 				$_SESSION['telefone'] = $dado['telefone'];
-				$_SESSION['email'] = $dado['email'];
+				$_SESSION['email'] = $dado['email'];	
+				$_SESSION['imagem'] = $dado['imagem'];
 				return true;
 			}else{
 				return false;

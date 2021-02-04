@@ -1,10 +1,10 @@
 <?php
-	session_start();
+    session_start();
 	if(!isset($_SESSION['id'])){
-		header("location: ../../login.php");
+		header("Location: ../../login.php");
 		exit;
 	}else{
-        ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -45,16 +45,16 @@
                 <i class="fas left"></i>
             </div>
             <div class="config">
-            <?php
-                $pagina = isset( $_GET['painel'] ) ? $_GET['painel'] : '';
-                if($pagina ==''){
-                    include ('perfil.php');
-                }elseif(file_exists($pagina.'.php')){
-                    include ($pagina.'.php');
-                }else{
-                }
-            ?>
-
+                <?php
+                    $pagina = isset( $_GET['painel'] ) ? $_GET['painel'] : '';
+                    if($pagina ==''){
+                        include('perfil.php');
+                    }elseif(file_exists($pagina.'.php')){
+                        include($pagina.'.php');
+                    }else{
+                        
+                    }
+                ?>
             </div>
         </div>
     </body>

@@ -4,7 +4,7 @@
 		header("location: ../login.php");
 		exit;
 	}else{
-		?>
+?>
 		<!DOCTYPE html>
 		<html lang="pt-br">
 		<head>
@@ -51,7 +51,6 @@
 				</div>
 				<div class="notas">
 					<p>Seja Bem-Vindo ao ambiente das suas notas!</p>
-					<?php echo (session_encode())?>
 				</div>
 			</div>
 		</body>

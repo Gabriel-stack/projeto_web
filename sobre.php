@@ -1,11 +1,13 @@
+<?php include('config.php');?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/sobre.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/header.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/footer.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -13,49 +15,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <title>FILENOTE | Crie anotações inteligentes e práticas</title>
+    <title>Sobre</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
-    <header class="conteudo-header">
+<header class="conteudo-header">
         <div class="imagem">
-            <a href="index.html">
+            <a href="<?php echo INCLUDE_PATH;?>">
                 <img class ="logo" src="img/logo-branca.png"></img>
             </a>
         </div>
             <nav class="navegacao">
                 <i class="fas fa-bars fa-2x"></i>
                 <ul>
-                    <li><a href="index.html">INÍCIO</a></li>
-                    <li><a href="sobre.html">SOBRE</a></li>
-                    <li><a href="login.php"><i class="fas fa-user fa-2x"></i></a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>index.php">INÍCIO</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>sobre.php">SOBRE</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>login.php"><i class="fas fa-user fa-2x"></i></a></li>
                     <!-- <li><a href="login.php">LOGIN</a></li> -->
                 </ul>
             </nav>
-    </header>
-    <div class="conteudo-pagina">
-        <div class="principal">
-            <p>Faça as suas anotações diárias sem perder tempo.</p>
-            <a href="cadastro.php"><button type="submit" name="btn_cadastrar">Comece agora!</button></a>
+ </header>
+
+ <div class="labels">
+        <div id="titulo">
+            <h1>Sobre o FileNote</h1>
         </div>
-        <div class="imagem-principal">
-            <img src="img/fundo2.png" alt="">
+        <div class="conteudo um">
+            <div class="img">
+                <img src="img/sobre_img_1.jpg" alt="">
+            </div>
+            <div class="texto"> 
+                <p>Somos um site que visa facilitar a vida do usuário em que precisa
+                 de praticidade no dia-a-dia em meio a correria</p>  
+            </div>
         </div>
-    </div>
-    <section class="info" id="sessao-um">
-        <div class="carac">
-            <img src="img/praticidade.png"></img>
-            <p>Faça anotações de forma rápida, fácil  e inteligente através de uma ferramenta simples e prática.</p>
+        <div class="conteudo dois">
+            <div class="img">
+                <img src="img/sobre_img_2.jpg" alt="">
+            </div>
+            <div class="texto">
+                <p>Proporcionamos aos usuários uma experiência mais do 
+                que satisfatória para a criação e organização de suas tarefas diárias.</p>   
+            </div>
         </div>
-        <div class="carac">
-            <img src="img/associacao.png">
-            <p>Associe arquivos as suas anotações, possibilitando uma nova forma diferente e mais completa para a criação de suas notas.</p>
+        <div class="conteudo tres">
+            <div class="img">
+                <img src="img/sobre_img_3.jpg" alt="">
+            </div>
+            <div class="texto">
+                <p>Agende as suas notas para ter facilidade sobre os prazos de suas tarefas.</p>   
+            </div>
         </div>
-        <div class="carac">
-            <img src="img/agendar.png">
-            <p>Agende as suas anotações para uma melhor organização de suas tarefas.</p>
-        </div>
-    </section>
+        <div class="conteudo quatro">
+            <div class="img">
+                <img src="img/sobre_img_4.jpg" alt="">
+            </div>
+            <div class="texto">   
+                <p>Adicione arquivos as suas notas, facilitando na sua organização.</p>
+            </div>
+        </div>      
+</div>
 </body>
 <footer class="rodape">
     <div class="info">
@@ -81,4 +100,3 @@
         </div>
     </div>
 </footer>
-</html>

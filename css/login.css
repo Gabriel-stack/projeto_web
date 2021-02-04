@@ -22,11 +22,12 @@ body{
 	color: #ffffff;
 }
 .login > .formulario > form > label{
-	padding: 10px 7px;
+	display: inline-block;
 	border-radius: 7px;
 	border: 1px solid;
 	width: 80%;
 	border-color: #ffffff;
+	margin-top: 20px;
 }
 .login > .formulario > form > label > input{
 	width: inherit;
@@ -49,7 +50,7 @@ body{
 	text-decoration: none;
 }
 .login > .formulario > form > label:nth-of-type(3){
-	margin: 10px;
+	margin: 5px;
 	padding: 10px 0;
 	border: none;
 	text-align: right;
@@ -71,8 +72,9 @@ body{
 .login > .formulario > form > label > i{
 	color: #ffffff;
 }
-.login > .formulario > form > button{
-	position: relative;
+.login > .formulario > form > button,
+.login > .formulario > form > .google-login{
+	display: inline-block;
 	font-size: 20px;
 	margin-top: 15px;
 	margin-bottom: 10px;
@@ -86,13 +88,15 @@ body{
 	border:none;
     border-radius: 7px;
 }
-.login > .formulario > p > a{
+.login > .formulario > p > a,
+.login > .formulario > form > label > a{
 	color: cyan;
 	text-decoration: none;
 }
 .login > .formulario > form > span,
 .login > .formulario > p,
 .login > .formulario > form > label > a{
+	display: block;
 	color: #ffffff;
 }
 .msg-erro{
@@ -110,4 +114,9 @@ body{
 	border: 1px solid rgb(162,42,42,0.5);
 	border-radius: 2px;
 	color: #ffffff;
+}
+
+.abcRioButtonBlue {
+	background-color: white;
+	color: black;
 }

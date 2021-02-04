@@ -11,27 +11,6 @@ body{
     max-width: 400px;
     width: 80%;
 }
-
-
-.formulario > form > .user-avatar{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    width: 200px;
-    height: 200px;
-    border: 1px solid gray;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-.cadastro > .formulario > form > .user-avatar{
-    background-image: url('../img/user-none.png');
-    background-size: cover;
-}
-.cadastro > .formulario > form > .user-avatar > label> input{
-    display: none;
-}
-
-
 .cadastro > .formulario > form > h3{
 	position: relative;
 	font-size: 30px;
@@ -50,7 +29,6 @@ body{
 	width: 80%;
 	border-color: #ffffff;
 	margin-bottom: 10px;
-
 }
 .cadastro > .formulario > form > label > a{
 	color: #ffffff;
@@ -105,6 +83,14 @@ body{
 	background-image: linear-gradient(to right,#f44336,#e91e63);
     border: 1px solid;
     border-radius: 8px;
+}
+.cadastro > .formulario > p > a{
+	color: cyan;
+	text-decoration: none;
+}
+.cadastro > .login > .formulario > p{
+	display: block;
+	color: #ffffff;
 }
 #msg-sucesso{
 	position: absolute;
