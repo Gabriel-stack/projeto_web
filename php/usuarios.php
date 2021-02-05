@@ -1,5 +1,4 @@
 <?php
-session_start();
 	class Usuario{
 		private $pdo;
 		public $msgErro = "";
@@ -39,11 +38,25 @@ session_start();
 			$sql->execute();
 			if($sql->rowCount() > 0){
 				$dado = $sql->fetch();
+				session_start();
 				$_SESSION['id'] = $dado['id'];
 				$_SESSION['nome'] = $dado['nome'];
 				$_SESSION['telefone'] = $dado['telefone'];
 				$_SESSION['email'] = $dado['email'];	
 				$_SESSION['imagem'] = $dado['imagem'];
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function atualizarDados($id, $nome, $telefone, $imagem){
+			global $pdo;
+			$sql = $pdo->prepare("UPDATE conta SET nome = :n, telefone = :t, imagem = :i WHERE id = :id");
+			$sql->bindValue(":id", $id);
+			$sql->bindValue(":n", $nome);
+			$sql->bindValue(":t", $telefone);
+			$sql->bindValue(":i", $imagem);
+			if($sql->execute()){
 				return true;
 			}else{
 				return false;

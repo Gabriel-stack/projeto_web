@@ -21,17 +21,16 @@
     justify-content: flex-end;
     width: 200px;
     height: 200px;
-    border: 1px solid gray;
-    border-radius: 50%;
     margin-bottom: 10px;
 }
 .formulario > form > .user-avatar{
-    background-image: url('../img/user-none.png');
+    /* background-image: url('../img/user-none.png'); */
     background-size: cover;
 }
 .formulario > form > .user-img > label{
     width: 100%;
     height: 100%;
+    background-size: cover;
 }
 .formulario > form > .user-img > label > img{
     width: 100%;

@@ -1,7 +1,8 @@
 <?php
+//    include_once '../config.php';
     class Painel{
         public function verificarImagem($imagem){
-            if($imagem['type'] == 'imagem/jpeg' || $imagem['type'] == 'imagem/jpg' || $imagem['type'] == 'imagem/png'){
+            if($imagem['type'] == 'image/jpeg' || $imagem['type'] == 'image/jpg' || $imagem['type'] == 'image/png'){
                 $tamanho = intval($imagem['size'] / 1024);
                 if($tamanho < 300){
                     return true;
@@ -13,14 +14,14 @@
             }
         }
         public function uploadImagem($file){
-            if(move_uploaded_file($file['tmp_name'], BASE_DIR_PAINEL.'/uploads/'.$file['name'])){
-                return $file['name'];
+            if(move_uploaded_file($file['tmp_name'], 'D:/xampp/htdocs/projeto_Web/painel/uploads/'.$file['name'])){
+                return $file['name']; // ../painel/uploads/ 
             }else{
                 return false;
             }
         }
         public function deletaArquivo($file){
-            @unlink('upload/'.$file);
+            @unlink('uploads/'.$file);
         }
     }
 ?>
