@@ -1,12 +1,12 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['id'])){
-		header("location: ../login.php");
+		header("Location: ../login.php");
 		exit;
 	}else{
 ?>
-		<!DOCTYPE html>
-		<html lang="pt-br">
+	<!DOCTYPE html>
+	<html lang="pt-br">
 		<head>
 			<title>Notas</title>
 			<meta charset="UTF-8">
@@ -22,7 +22,7 @@
 			<div class="conteudo">
 				<header class="conteudo-header">
 					<div class="imagem">
-						<a href="../index.html">
+						<a href="../">
 							<img class ="logo" src="../img/logo-branca.png"></img>
 						</a>
 					</div>
@@ -32,21 +32,19 @@
 								<input type="text" name="pesquisa" maxlength="100" placeholder="Pesquisar notas">
 								<button type="submit" name="pequisa"><i class="fas fa-search fa-2x"></i></button>
 							</label>
-							
 						</form>
 					</div>
 					<nav class="navegacao">
 						<ul>
 							<li><a href="../php/logoff.php">SAIR</a></li>
 							<li><a href="configuracoes/conta.php">PERFIL</a></li>
-							<!-- <li><img src="../img/foto-perfil.jpg"></img></li> -->
 						</ul>
 					</nav>
 				</header>
 				<div class="menu">
 					<ul>
 						<li>Calendário</li>
-						<li>Pastas</li>
+						<li>Marcadores</li>
 					</ul>
 				</div>
 				<div class="notas">
@@ -54,7 +52,7 @@
 				</div>
 			</div>
 		</body>
-		</html>
-		<?php
+	</html>
+<?php
 	}
 ?>

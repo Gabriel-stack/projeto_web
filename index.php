@@ -33,7 +33,6 @@
                         <li><a href="<?php echo INCLUDE_PATH; ?>">INÍCIO</a></li>
                         <li><a href="<?php echo INCLUDE_PATH; ?>sobre.php">SOBRE</a></li>
                         <li><a href="<?php echo INCLUDE_PATH; ?>login.php"><i class="fas fa-user fa-2x"></i></a></li>
-                        <!-- <li><a href="login.php">LOGIN</a></li> -->
                     </ul>
                 </nav>
         </header>

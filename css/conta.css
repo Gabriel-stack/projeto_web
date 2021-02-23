@@ -8,22 +8,22 @@
 .conteudo-header{
     grid-area: header;
 }
-.conteudo > .menu{
+.menu{
     grid-area: menu;
-    background-color: #1F2861;
+    background-color: #261347;
 }
-.conteudo > .menu > ul{
+.menu > ul{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.conteudo > .menu > ul > li{
+.menu > ul > li{
     display: flex;
     width: 100%;
     height: 60px;
     list-style-type: none;
 }
-.conteudo >.menu > ul > li > a{
+.menu > ul > li > a{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -33,15 +33,15 @@
     height: 100%;
     width: 100%;
 }
-.conteudo >.menu > ul > li:hover{
+.menu > ul > li:hover{
     transition: 100ms;
     background-color: rgb(145, 171, 218);
 }
-.conteudo >.menu > i{
+.menu > i{
     display: none;
     color: #ffffff;
 }
-.conteudo > .config{
+.config{
     grid-area: config;
     background-color: #c3c0c9;
     padding: 10px;
@@ -49,7 +49,7 @@
     align-content: start;
     text-align: center;
 }
-.conteudo > .config > p{
+.config > p{
     color: black;
     font-size: 30px;
     width: 100%;
@@ -62,10 +62,10 @@
         grid-template-areas: "header header" "menu config";
         height: 100%;
     }
-    .conteudo > .menu{
+    .menu{
         overflow: hidden;
     }
-    .conteudo >.menu > i{
+   .menu > i{
         color: #ffffff;
     }
 }

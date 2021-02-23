@@ -1,16 +1,16 @@
 <?php
 	class Usuario{
 		private $pdo;
-		public $msgErro = "";
+		public $msgErro;
 		public function conectar($nome, $host, $email, $senha){
 			global $pdo;
+			$this->msgErro = "";
 			try{
 				$pdo = new PDO("mysql:dbname=".$nome.";host=".$host, $email, $senha);
 			}catch(PDOException $e){
-				$msgErro = $e->getMessage();
-			}
-			catch(Exception $e){
-				$msgErro = $e->getMessage();
+				$this->msgErro = "Erro de conexão!";
+			}catch(Exception $e){
+				$this->msgErro = "Ocorreu um erro!";
 			}
 		}
 		public function cadastrar($nome, $email, $telefone, $senha){
@@ -37,25 +37,39 @@
 			$sql->bindValue(":s", md5($senha));
 			$sql->execute();
 			if($sql->rowCount() > 0){
-				$dado = $sql->fetch();
+				$dado = $sql->fetch(); //PDO::FETCH_ASSOC
 				session_start();
-				$_SESSION['id'] = $dado['id'];
-				$_SESSION['nome'] = $dado['nome'];
-				$_SESSION['telefone'] = $dado['telefone'];
-				$_SESSION['email'] = $dado['email'];	
-				$_SESSION['imagem'] = $dado['imagem'];
+				$_SESSION = $dado;
 				return true;
 			}else{
 				return false;
 			}
 		}
-		public function atualizarDados($id, $nome, $telefone, $imagem){
+		public function atualizarDados($id, $nome, $telefone){
 			global $pdo;
-			$sql = $pdo->prepare("UPDATE conta SET nome = :n, telefone = :t, imagem = :i WHERE id = :id");
-			$sql->bindValue(":id", $id);
+			$sql = $pdo->prepare("UPDATE conta SET nome = :n, telefone = :t WHERE id = '$id'");
 			$sql->bindValue(":n", $nome);
 			$sql->bindValue(":t", $telefone);
+			if($sql->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function atualizarImg($id, $imagem){
+			global $pdo;
+			$sql = $pdo->prepare("UPDATE conta SET imagem = :i WHERE id = '$id'");
 			$sql->bindValue(":i", $imagem);
+			if($sql->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function atualizarSenha($id, $senha){
+			global $pdo;
+			$sql = $pdo->prepare("UPDATE conta SET senha = :s WHERE id = '$id'");
+			$sql->bindValue(":s", md5($senha));
 			if($sql->execute()){
 				return true;
 			}else{
