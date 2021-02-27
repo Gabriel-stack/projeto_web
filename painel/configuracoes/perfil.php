@@ -84,23 +84,24 @@
                 ?>
                 <div class="user-avatar photo">
                     <i class="far fa-edit"></i>
-                    <label for="img-model">
+                    <label for="img-enviar">
                         <img src="../../img/user-none.png" alt="imagem padrão do usuário" name="arquivo_atual">
                     </label>
                 </div>
                 <?php
             }else{
                 ?>
+                <label for="img-enviar">
                 <div class="user-img photo">
-                    
-                    <label for="img-model">
+                    <label for="img-enviar">
                         <img src="<?php echo '../uploads/'.$_SESSION['imagem']; ?>" alt="user" name="img_default">
                         <?php
                             $imagem_atual = $_SESSION['imagem'];
                         ?>
                     </label>
-                    <a href="" id ='img-model'><i class="far fa-edit fa-2x"></i></a>
-                </div>
+                    <i class="far fa-edit fa-2x"></i>
+                    </div>
+                </label>
                 <?php
             }
         ?>
