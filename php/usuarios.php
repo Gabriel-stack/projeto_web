@@ -76,7 +76,29 @@
 				return false;
 			}
 		}
-		public function criarMarcador($nome, $id_user){
+		public function verificaEmail_e_Telefone($email, $telefone){
+			global $pdo;
+			$sql = $pdo->prepare("SELECT * FROM conta WHERE email = :e AND telefone = :t");
+			$sql->bindValue(":e", $email);
+			$sql->bindValue(":t", $telefone);
+			$sql->execute();
+			if($sql->rowCount() > 0){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function modificarSenha($email, $novaSenha){
+			global $pdo;
+			$sql = $pdo->prepare("UPDATE conta SET senha = :s WHERE email = '$email'");
+			$sql->bindValue(":s", md5($novaSenha));
+			if($sql->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function criarMarcador($id_user, $nome){
 			global $pdo;
 			$sql = $pdo->prepare("SELECT * FROM marcador WHERE nomeMarcador = :n AND idUsuario :i");
 			$sql->bindValue(":n", $nome);
@@ -94,19 +116,12 @@
 		}
 		public function editarMarcador($id_user, $idMarcador, $nomeMarcador){
 			global $pdo;
-			$cmd = $pdo->prepare("UPDATE marcador SET = nomeMarcador :n WHERE idUsuario = :iu AND idMarcador = :i");
-			$cmd->bindValue(":n", $nomeMarcador);
-			$cmd->bindValue(":iu", $id_user);
-			$cmd->bindValue(":im", $idMarcador);
-			$cmd->execute();
-		}
-		public function listarMarcador($id_user){
-			global $pdo;
-			$sql = $pdo->prepare("SELECT * FROM marcador WHERE idUsuario = :i");
-			$sql->bindValue(":i", $id_user);
-			$sql->execute();
-			if($sql->rowCount() > 0){
-				return $sql->fetchAll(PDO::FETCH_NUM);
+			$sql = $pdo->prepare("UPDATE marcador SET nomeMarcador = :n WHERE idUsuario = :iu AND idMarcador = :i");
+			$sql->bindValue(":n", $nomeMarcador);
+			$sql->bindValue(":iu", $id_user);
+			$sql->bindValue(":im", $idMarcador);
+			if($sql->execute()){
+				return true;
 			}else{
 				return false;
 			}
@@ -118,7 +133,32 @@
 			$sql->bindValue("im", $idMarcador);
 			$sql->execute();
 			if($sql->rowCount() == 0){
-				return true;
+				$sql = $pdo->prepare("DELETE FROM notas WHERE idMarcador = :im");
+				$sql->bindValue("im", $idMarcador);
+				$sql->execute();
+				if($sql->rowCount() == 0){
+					$sql = $pdo->prepare("DELETE FROM arquivos WHERE idNota = :iNota");// ESTÁ ERRADO!
+					$sql->bindValue("iNota", $idNota);
+					$sql->execute();
+					if($sql->rowCount() == 0){
+						return true;
+					}else{
+						return false;
+					}
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}
+		public function listarMarcador($id_user){
+			global $pdo;
+			$sql = $pdo->prepare("SELECT * FROM marcador WHERE idUsuario = :i");
+			$sql->bindValue(":i", $id_user);
+			$sql->execute();
+			if($sql->rowCount() > 0){
+				return $sql->fetchAll(PDO::FETCH_NUM);
 			}else{
 				return false;
 			}
@@ -138,12 +178,36 @@
 		}
 		public function editarNota($idMarcador, $idNota, $titulo, $conteudoNota){
 			global $pdo;
-			$cmd = $pdo->prepare("UPDATE notas SET = titulo :t AND conteudoNota :c WHERE idMarcador = :im AND IdNota :inota");
-			$cmd->bindValue(":im", $idMarcador);
-			$cmd->bindValue(":inota", $idNota);
-			$cmd->bindValue(":t", $titulo);
-			$cmd->bindValue(":c", $conteudoNota);
-			$cmd->execute();
+			$sql = $pdo->prepare("UPDATE notas SET titulo = :t, conteudoNota = :c WHERE idMarcador = :im AND IdNota = :iNota");
+			$sql->bindValue(":im", $idMarcador);
+			$sql->bindValue(":iNota", $idNota);
+			$sql->bindValue(":t", $titulo);
+			$sql->bindValue(":c", $conteudoNota);
+			if($sql->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function excluirNota($idMarcador, $idNota){
+			global $pdo;
+			$sql = $pdo->prepare("DELETE FROM notas WHERE idMarcador = :im AND idNota = :iNota");
+			$sql->bindValue("im", $idMarcador);
+			$sql->bindValue("iNota", $idNota);
+			$sql->execute();
+			if($sql->rowCount() == 0){
+				$sql = $pdo->prepare("DELETE FROM arquivos WHERE idNota = :iNota");
+				$sql->bindValue("iNota", $idNota);
+				$sql->bindValue("ia", $idArquivo);
+				$sql->execute();
+				if($sql->rowCount() == 0){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
 		}
 		public function listarNotas($idMarcador){
 			global $pdo;
@@ -156,13 +220,13 @@
 				return $sql->fetchAll(PDO::FETCH_NUM);
 			}
 		}
-		public function excluirNota($idMarcador, $idNota){
+		public function pesquisarNota($idNota, $idMarcador, $pesquisa){
 			global $pdo;
-			$sql = $pdo->prepare("DELETE FROM notas WHERE idUsuario = :iu AND idMarcador = :im");
-			$sql->bindValue("iu", $idMarcador);
-			$sql->bindValue("inota", $idNota);
+			$sql = $pdo->prepare("SELECT * FROM notas WHERE idNota = :iNota and idMarcador = :im  AND (titulo LIKE '%".$pesquisa."%' OR conteudoNota LIKE '%".$pesquisa."%')");
+			$sql->bindValue(":iNota", $idNota);
+			$sql->bindValue(":im", $idMarcador);
 			$sql->execute();
-			if($sql->rowCount() == 0){
+			if($sql->rowCount() > 0){
 				return true;
 			}else{
 				return false;
@@ -181,6 +245,18 @@
 				return true;
 			}
 		}
+		public function excluirArquivo($idNota, $idArquivo){
+			global $pdo;
+			$sql = $pdo->prepare("DELETE FROM arquivos WHERE idNota = :iNota AND idArquivo = :ia");
+			$sql->bindValue("iNota", $idNota);
+			$sql->bindValue("ia", $idArquivo);
+			$sql->execute();
+			if($sql->rowCount() == 0){
+				return true;
+			}else{
+				return false;
+			}
+		}
 		public function listarArquivos($idNota){
 			global $pdo;
 			$sql = $pdo->prepare("SELECT * FROM arquivos WHERE idNota = :i");
@@ -192,26 +268,13 @@
 				return false;
 			}
 		}
-		public function excluirArquivo($idNota, $idArquivo){
+		public function pegarNota($idNota){
 			global $pdo;
-			$sql = $pdo->prepare("DELETE FROM arquivos WHERE idNota = :inota AND idArquivo = :ia");
-			$sql->bindValue("inota", $idNota);
-			$sql->bindValue("ia", $idArquivo);
-			$sql->execute();
-			if($sql->rowCount() == 0){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		public function pesquisarNota($idNota, $idMarcador, $pesquisa){
-			global $pdo;
-			$sql = $pdo->prepare("SELECT * FROM notas WHERE idNota = :inota and idMarcador = :im  AND (titulo LIKE '%".$pesquisa."%' OR conteudoNota LIKE '%".$pesquisa."%')");
-			$sql->bindValue(":inota", $idNota);
-			$sql->bindValue(":im", $idMarcador);
+			$sql = $pdo->prepare("SELECT * FROM notas WHERE idNota = :i");
+			$sql->bindValue(":i", $idNota);
 			$sql->execute();
 			if($sql->rowCount() > 0){
-				return true;
+				return $sql->fetch(PDO::FETCH_ASSOC);
 			}else{
 				return false;
 			}

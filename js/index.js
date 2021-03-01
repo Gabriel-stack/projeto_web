@@ -17,6 +17,3 @@ photo.addEventListener('mouseout', function(e){
     img.style.display = 'flex';
     photo.style.backgroundColor = 'transparent';
 })
-
-
-

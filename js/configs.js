@@ -9,9 +9,11 @@ const example = document.querySelectorAll('.adicionar_nota i');
 const janelaAddNota = document.querySelector('.janelaAddNota');
 const fecharJanelaAddNota = document.querySelector('.janelaAddNotaFalse');
 const hidden = document.getElementById('idMarc');
+const hiddenMostrar = document.getElementById('idNotaMostrar');
 const nota = document.querySelectorAll('.nota');
 const notaExpandir = document.querySelector('.janelaNotaExpandir');
 const fecharNotaExpandir = document.querySelector('.notaExpandirFalse');
+
 plus.addEventListener('click', function(event){
     event.preventDefault();
     corpo.style.backgroundColor = 'black';
@@ -67,7 +69,6 @@ fecharJanelaAddNota.addEventListener('click', function(event){
     janelaAddNota.style.opacity = '1';
     janelaAddNota.style.display = 'none';
 })
-console.log(nota);
 for(i = 0; i<nota.length; i++){
     nota[i].addEventListener('click', function(event){
         event.preventDefault();
@@ -75,6 +76,8 @@ for(i = 0; i<nota.length; i++){
         conteudo.style.pointerEvents = 'none';
         conteudo.style.opacity = '0.6';
         notaExpandir.style.display = 'block';
+        hiddenMostrar.value = this.id;
+        console.log(hiddenMostrar.value);
     })
 }
 fecharNotaExpandir.addEventListener('click', function(event){

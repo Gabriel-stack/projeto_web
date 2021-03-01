@@ -39,7 +39,7 @@
 					<?php
 					$u->conectar("usuario","localhost","root","");
 					if($u->msgErro == ""){
-						if(!$u->criarMarcador($nomeMarcador, $_SESSION['id'])){
+						if(!$u->criarMarcador($_SESSION['id'], $nomeMarcador)){
 							?>
 							<script>
 								alert("Não foi possível criar o marcador!");
@@ -104,9 +104,11 @@
 				if($u->msgErro == ""){
 					if(isset($_GET['textoPesquisa']) && !empty($_GET['textoPesquisa'])){
 						if($u->listarMarcador($_SESSION['id'])){
+							global $marc;
 							$marc = $u->listarMarcador($_SESSION['id']);
 							for($i = 0; $i < count($marc); $i++){
 								if($u->listarNotas($marc[$i][0])){
+									global $nota;
 									$nota = $u->listarNotas($marc[$i][0]);
 									?>
 									<div class="resultado-pesquisa">
@@ -129,8 +131,8 @@
 												</div>
 												<?php
 												if($u->listarArquivos($nota[$j][2])){
+													global $arq;
 													$arq = $u->listarArquivos($nota[$j][2]);
-													var_dump($arq);
 													for($k = 0; $k < count($arq); $k++){
 														?>
 														<div class="arquivo">
@@ -158,6 +160,11 @@
 							$marc = $u->listarMarcador($_SESSION['id']);
 							for($i = 0; $i < count($marc); $i++){
 								?>
+							<label for="<?php echo $marc[$i][0]; ?>">
+								<div class="configuracoes-notas">
+									<i class="far fa-edit fa-3x"></i>
+									<i class="fas fa-eraser fa-3x"></i>
+								</div>
 								<fieldset>
 									<legend><?php echo $marc[$i][1]; ?></legend>
 									<div class="orgNotas">
@@ -166,38 +173,51 @@
 											$nota = $u->listarNotas($marc[$i][0]);
 											for($j = 0; $j < count($nota); $j++){
 												?>
-												<div class="nota example">
+												<label for="form-submit" class="nota example" id="<?php echo $nota[$j][0];?>">
+													<form action="" method="POST">
+													<input type="text" name="idNota" value="<?php echo $nota[$j][0]?>" id="idMarcMostrar" required>
+														<input type="submit" id="form-submit" style="display:none;" name="ediNota"> 
+													</form>
 													<div class="titulo">
 														<p>
 															<?php echo $nota[$j][1]; ?>
 														</p>
 													</div>
-													<!-- <div class="descricao">
-														<i class="descricao"></i>
-														<p>
-															<?php //echo $nota[$j][2]; ?>
-														</p>
-													</div> -->
-												</div>
-												<?php
-												if($u->listarArquivos($nota[$j][2])){
-													$arq = $u->listarArquivos($nota[$j][2]);
-													var_dump($arq);
-													for($k = 0; $k < count($arq); $k++){
+													<div class="janelaNotaExpandir">
+														<img src="../img/close.svg" alt="" class="notaExpandirFalse">
+														<?php 
+															if(isset($_POST['ediNota'])){
+																?>
+																<form method="POST">
+																	<input type="text" name="idNotaEnviar" value="" id="idNotaMostrar" required>
+																	<input type="text" placeholder="insira o título" name="titulo" id ="titulo" value="<?php echo $nota[$j][1]; ?>">
+																	<input type="textarea" placeholder="insira sua descrição" name="conteudoNota" id="descricao" value="<?php echo $pegaNota['conteudoNota']; ?>">
+																	<input type="color" name="cor">
+																	<input type="file" name="arquivo">
+																	<input type="submit" name="editarNota" value ="SALVAR">
+																</form>
+																<?php
+															}
+															if(isset($_POST['editarNota'])){
+																if(!$u->editarNota($pegaNota['idMarcador'], $_POST['idNotaEnviar'], $_POST['titulo'], $_POST['conteudoNota'])){
+																	?>
+																	<script>
+																		alert("Ocorreu um erro ao tentar editar a nota!");
+																		</script>
+																	<?php
+																}else{
+																	refresh();
+																}
+															}
 														?>
-														<!-- <div class="arquivo">
-															<p>
-																<?php //echo $arq[$k][2]; ?>
-															</p>
-														</div> -->
-														<?php
-													}
-												}
+													</div>
+												</label>
+												<?php
 											}
 										}
 									?>
 									<div class="adicionar_nota example">
-										<i class="fas fa-plus-circle fa-3x" id="<?php echo $marc[$i][0];?>"></i>
+										<i class="fas fa-plus-circle fa-3x" id="<?php echo $marc[$i][0]; ?>"></i>
 										<?php
 											if(isset($_POST['addNota'])){
 												$titulo = addslashes($_POST['titulo']);
@@ -222,6 +242,7 @@
 									</div>
 									</div>
 								</fieldset>
+								</label>
 								<?php
 							}
 						}
@@ -240,7 +261,7 @@
 		</div>
 		<div class="janelaAddNota">
 			<img src="../img/close.svg" alt="" class="janelaAddNotaFalse">
-			<form action="" method="POST">
+			<form method="POST">
 				<input type="text" name="idMarc" value=""  id="idMarc" required>
 				<input type="text" placeholder="insira o título" name="titulo" id ="titulo">
 				<input type="textarea" placeholder="insira sua descrição" name="conteudoNota" id="descricao">
@@ -249,17 +270,12 @@
 				<input type="submit" name="addNota" value ="SALVAR">
 			</form>
 		</div>
-		<div class="janelaNotaExpandir">
-				<img src="../img/close.svg" alt="" class="notaExpandirFalse">
-				<form action="" method="POST">
-					<input type="text" name="idMarc" value=""  id="idMarc" required>
-					<input type="text" placeholder="insira o título" name="titulo" id ="titulo">
-					<input type="textarea" placeholder="insira sua descrição" name="conteudoNota" id="descricao">
-					<input type="color" name="cor">
-					<input type="file" name="arquivo">
-					<input type="submit" name="addNota" value ="SALVAR">
-				</form>
-			</div>
+		
+		<div class="janelaExcluirNota">
+			<form method="POST">
+				
+			</form>
+		</div>
 		<script src="<?php echo '../js/configs.js' ?>"></script>
 	</body>
 </html>

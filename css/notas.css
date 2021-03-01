@@ -76,13 +76,12 @@ body{
 }
 .notas{
     grid-area: notas;
-    background-color: #ffffff;
+    background-color: #f0eaea;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
 }
 .notas > p{
     color: black;
@@ -138,7 +137,15 @@ body{
     border-style: none;
     outline-style: none;
 }
-.notas > fieldset{
+.notas > label{
+    width: 90%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.notas > label > fieldset{
     margin: 20px 0;
     display: flex;
     flex-direction: row;
@@ -149,7 +156,25 @@ body{
     background-color: #fdfdfd;
     box-shadow: 10px 5px 5px #cccccc;
 }
-.notas > fieldset > .orgNotas{
+.configuracoes-notas{
+    height: inherit;
+    background-color: #ffffff88;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.configuracoes-notas > i{
+    cursor: pointer;
+}
+}
+.configuracoes-notas > i:nth-of-type(1){
+    color: #ffffff88;
+}
+.configuracoes-notas > i:nth-of-type(2){
+   color: rgb(230, 66, 66);
+}
+.notas > label >fieldset > .orgNotas{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -159,7 +184,8 @@ body{
     height: 95%;
 }
 
-.notas > fieldset > legend{
+.notas > label > fieldset > legend{
+    margin-top: 10px;
     padding: 0 10px;
     font-size: 20pt;
     font-family: fantasy;
@@ -200,7 +226,6 @@ body{
     cursor: pointer;
     color: rgb(47, 39, 39);
 }
-
 .adicionar_nota > i:hover{
     cursor: pointer;
 }
@@ -242,7 +267,7 @@ body{
     width: 90%;
     height: 50%;
 }
-.janelaNotaExpandir > form > #idNota,
+/* .janelaNotaExpandir > form > #idMarcMostrar, */
 .janelaAddNota > form > #idMarc{
     display: none;
 }

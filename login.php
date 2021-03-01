@@ -75,9 +75,9 @@
                         <i class="fas fa-key"></i>
                         <input type="password" name="senha" maxlength="20" placeholder="Senha"  id= "senha"required>
                     </label>
-                    <label>
+                    <!-- <label>
                         <a id="novasenha" href="modifSenha.php">Esqueci minha senha</a><br>
-                    </label>
+                    </label> -->
                     <label>
                         <input type="checkbox" name="auto_login"> Manter-me conectado
                     </label>
