@@ -18,47 +18,44 @@
                             if($u->atualizarSenha($_SESSION['id'], $novasenha)){
                                 $_SESSION['senha'] = $novasenha;
                                 ?>
-                                <div class="msg-sucesso">
-                                    Atualizado com sucesso!
-                                </div>
+                                <script>
+                                    alert("Atualizado com sucesso!");
+                                </script>
                                 <?php
                                 header('Refresh:0');
                             }else{
                                 ?>
-                                <div class="msg-erro">
-                                    Ocorreu um erro ao tentar atualizar!
-                                </div>
+                                <script>
+                                    alert("Ocorreu um erro ao tentar atualizar!");
+                                </script>
                                 <?php
                             }
                         }else{
                             ?>
-                            <div class="msg-erro">
-                                Ocorreu um erro ao tentar atualizar!<br>
-                                <?php
-                                    echo $u->msgErro;
-                                ?>
-                            </div>
+                            <script>
+                                alert("Ocorreu um erro ao tentar salvar: <?php echo $u->msgErro;?>");
+                            </script>
                             <?php
                         }
                     }else{
                         ?>
-                        <div class="msg-erro">
-                            Senha e repetir senha não correspondem!
-                        </div>
+                        <script>
+                            alert("Senha e repetir senha não correspondem!");
+                        </script>
                         <?php
                     }
                 }else{
                     ?>
-                    <div class="msg-erro">
-                        Senha incorreta!
-                    </div>
+                    <script>
+                        alert("Senha incorreta!");
+                    </script>
                     <?php
                 }
             }else{
                 ?>
-                <div class="msg-erro">
-                    Os campos não podem ficar vazios!
-                </div>
+                <script>
+                    alert("Os campos não podem ficar vazios!");
+                </script>
                 <?php
             }
         }

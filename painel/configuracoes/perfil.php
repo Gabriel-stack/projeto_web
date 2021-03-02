@@ -12,30 +12,30 @@
             $nome = addslashes($_POST['nome']);
             $telefone = addslashes($_POST['telefone']);
             $imagem = $_FILES['arquivo'];
+            $imagem_atual = $_SESSION['imagem'];
             if(isset($nome) && !empty($nome) && isset($telefone) && !empty($telefone)){
                 $u->conectar("usuario","localhost","root","");
                 if($u->msgErro == ""){
-                    if(isset($imagem) && !empty($imagem)){
+                    if(isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])){
                         $atualizado = false;
                         if($p->verificarImagem($imagem)){
-                            print_r($imagem_atual);
-                            $p->deletaArquivo($imagem_atual);
+                            $p->deletarImagem($imagem_atual);
                             $imagem = $p->uploadImagem($imagem);
                             if($u->atualizarImg($_SESSION['id'], $imagem)){
                                 $_SESSION['imagem'] = $imagem;
                                 $atualizado = true;
                             }else{
                                 ?>
-                                <div class="msg-erro">
-                                    Ocorreu um erro ao tentar atualizar a imagem!
-                                </div>
+                                <script>
+                                    alert("Ocorreu um erro ao tentar atualizar a imagem!");
+                                </script>
                                 <?php
                             }
                         }else{
-                            ?> 
-                            <div class="msg-erro">
-                                O formato da imagem não é válido!
-                            </div>
+                            ?>
+                            <script>
+                                alert("O formato da imagem não é válido!");
+                            </script>
                             <?php
                         }
                         if($u->atualizarDados($_SESSION['id'], $nome, $telefone)){
@@ -45,34 +45,31 @@
                             // header('Refresh:0');
                         }else{
                             ?>
-                            <div class="msg-erro">
-                                Ocorreu um erro ao tentar atualizar!
-                            </div>
+                            <script>
+                                alert("Ocorreu um erro ao tentar atualizar!");
+                            </script>
                             <?php
                         }
                         if($atualizado){
                             ?>
-                            <div class="msg-sucesso">
-                                Atualizado com sucesso!
-                            </div>
+                            <script>
+                                alert("Atualizado com sucesso!");
+                            </script>
                             <?php
                         }
                     }
                 }else{
                     ?>
-                    <div class="msg-erro">
-                        Ocorreu um erro ao tentar atualizar!<br>
-                        <?php
-                            echo $u->msgErro;
-                        ?>
-                    </div>
+                    <script>
+                        alert("Ocorreu um erro ao tentar salvar: <?php echo $u->msgErro;?>");
+                    </script>
                     <?php
                 }
             }else{
                 ?>
-                <div class="msg-erro">
-                    Os campos não podem ficar vazios!
-                </div>
+                <script>
+                    alert("Os campos não podem ficar vazios!");
+                </script>
                 <?php
             }
         }
@@ -94,10 +91,7 @@
                 <label for="img-enviar">
                 <div class="user-img photo">
                     <label for="img-enviar">
-                        <img src="<?php echo '../uploads/'.$_SESSION['imagem']; ?>" alt="user" name="img_default">
-                        <?php
-                            $imagem_atual = $_SESSION['imagem'];
-                        ?>
+                        <img src="<?php echo '../uploads/'.$_SESSION['id'].$_SESSION['imagem'];?>" alt="user" name="img_default">
                     </label>
                     <i class="far fa-edit fa-2x"></i>
                     </div>

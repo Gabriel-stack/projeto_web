@@ -10,10 +10,10 @@ const janelaAddNota = document.querySelector('.janelaAddNota');
 const fecharJanelaAddNota = document.querySelector('.janelaAddNotaFalse');
 const hidden = document.getElementById('idMarc');
 const hiddenMostrar = document.getElementById('idNotaMostrar');
-const nota = document.querySelectorAll('.nota');
-const notaExpandir = document.querySelector('.janelaNotaExpandir');
-const fecharNotaExpandir = document.querySelector('.notaExpandirFalse');
-
+const nota = document.querySelectorAll('.notas .orgNotas .nota');
+const notaPesquisa = document.querySelectorAll('.resultado-pesquisa .nota');
+const opcaoNota = document.querySelector('.opcao-nota');
+const fecharOpNota = document.querySelector('.opcao-nota .fecharOp'); 
 plus.addEventListener('click', function(event){
     event.preventDefault();
     corpo.style.backgroundColor = 'black';
@@ -75,15 +75,33 @@ for(i = 0; i<nota.length; i++){
         corpo.style.backgroundColor = 'black';
         conteudo.style.pointerEvents = 'none';
         conteudo.style.opacity = '0.6';
-        notaExpandir.style.display = 'block';
         hiddenMostrar.value = this.id;
-        console.log(hiddenMostrar.value);
+        opcaoNota.style.display = 'flex';
     })
 }
-fecharNotaExpandir.addEventListener('click', function(event){
+for(i = 0; i<notaPesquisa.length; i++){
+    notaPesquisa[i].addEventListener('click', function(event){
+        event.preventDefault();
+        corpo.style.backgroundColor = 'black';
+        conteudo.style.pointerEvents = 'none';
+        conteudo.style.opacity = '0.6';
+        hiddenMostrar.value = this.id;
+        opcaoNota.style.display = 'flex';
+    })
+}
+fecharOpNota.addEventListener('click', function(event){
     corpo.style.backgroundColor = 'white';
     conteudo.style.pointerEvents = 'all';
     conteudo.style.opacity = '1';
-    notaExpandir.style.opacity = '1';
-    notaExpandir.style.display = 'none';
+    opcaoNota.style.display = 'none';
 })
+btn_editar.addEventListener('click', function(event){
+    opcaoNota.style.display = 'none';
+})
+// fecharNotaExpandir.addEventListener('click', function(event){
+//     corpo.style.backgroundColor = 'white';
+//     conteudo.style.pointerEvents = 'all';
+//     conteudo.style.opacity = '1';
+//     notaExpandir.style.opacity = '1';
+//     notaExpandir.style.display = 'none';
+// })

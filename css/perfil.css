@@ -35,11 +35,13 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.user-avatar > label,
 .user-img > label{
     width: inherit;
     height: inherit;
     background-size: cover;
 }
+.user-avatar > label > img,
 .user-img > label > img{
     cursor: pointer;
     width: inherit;

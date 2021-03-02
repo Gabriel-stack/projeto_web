@@ -39,6 +39,9 @@
                         $u->conectar("usuario","localhost","root","");
                         if($u->msgErro == ""){
                             if($u->logar($email, $senha)){
+                                if(!is_dir("painel/uploads/usuario".$_SESSION['id'])){
+                                    echo mkdir('painel/uploads/usuario'.$_SESSION['id']);
+                                }
                                 header("Location: painel/notas.php");
                                 die();
                             }else{

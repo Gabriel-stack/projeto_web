@@ -44,7 +44,6 @@
 .config{
     grid-area: config;
     background-color: #c3c0c9;
-    padding: 10px;
     display: flex;
     align-content: start;
     text-align: center;

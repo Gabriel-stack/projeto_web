@@ -1,4 +1,5 @@
 <?php
+    include ('config.php');
     require_once 'php/usuarios.php';
     $u = new Usuario;
 ?>
