@@ -7,7 +7,7 @@
 		require_once '../php/usuarios.php';
     	$u = new Usuario();
 		$u->conectar("usuario","localhost","root","");
-		$p = $u->pegarNota($_SESSION['idN']);
+		$p = $u->pegarMarcador($_SESSION['idM']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +16,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" href="../css/notas.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><?php echo $p['titulo'];?></title>
+		<title><?php echo $p['nomeMarcador'];?></title>
 		<style>
 			body{
 				height: 100vh;
@@ -30,18 +30,18 @@
 	<label class="janelaNotaExcluir">
 		<a href="notas.php"><img src="../img/close.svg" alt="" class="notaExpandirFalse"></a>
 		<form method="POST">
-			<div class="msg">
-				<p>Deseja excluir a nota?</p>
-				<p>Será excluído a nota e todos os arquivos relacionados!</p>
-			</div>
-			<div class="inp">
-				<input type="submit" name="excluirSim" value="SIM">
-				<input type="submit" name="excluirNao" value="NÃO">
-			</div>
+            <div class="msg">
+                <p>Deseja excluir o marcador?</p>
+				<p>Será excluído o marcador, todas as notas contidas nele e todos os arquivos relacionados!</p>
+            </div>
+            <div class="inp">
+                <input type="submit" name="excluirMarcSim" value="SIM">
+                <input type="submit" name="excluirMarcNao" value="NÃO">
+            </div>
 		</form>
 		<?php
-			if(isset($_POST['excluirSim'])){
-             if($u->excluirNota($p['idMarcador'], $p['idNota'], $_SESSION['id'])){
+			if(isset($_POST['excluirMarcSim'])){
+                if($u->excluirMarcador($p['idUsuario'], $p['idMarcador'])){
                     header('Location: notas.php');
                     die();
                 }else{
@@ -51,7 +51,7 @@
                     </script>
                     <?php
                 }
-			}else if(isset($_POST['excluirNao'])) {
+			}else if(isset($_POST['excluirMarcNao'])) {
                 header('Location: notas.php');
                 die();
             }

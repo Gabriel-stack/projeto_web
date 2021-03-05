@@ -82,7 +82,7 @@
                         <a id="novasenha" href="modifSenha.php">Esqueci minha senha</a><br>
                     </label> -->
                     <label>
-                        <input type="checkbox" name="auto_login"> Manter-me conectado
+                        <input type="checkbox" name="auto_login"> Manter-me conectado</input>
                     </label>
                     <button type="submit" name="btn_login">Login</button>
                     <span>ou</span>

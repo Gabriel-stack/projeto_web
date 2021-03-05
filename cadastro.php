@@ -96,9 +96,10 @@
                     <label for="">
                         <i class="fas fa-key"></i>
                         <input type="password" name="confsenha" maxlength="20" placeholder="Repetir senha" required>
-                    </label>
+                    </label><br>
+                    <a href="painel/configuracoes/termo_uso.php" style="text-decoration: none; color: cyan;">Ler os termos de uso</a>
                     <label>
-                        <!-- <a href="painel/configuracoes/termo_uso.php">Ler os termos de uso</a><br> -->
+                        
                         <input type="checkbox" name="termos" required checked> Ao se inscrever no FileNote, você concorda com os Termos de Serviço e Política de Privacidade do FileNote.
                     </label>
                     <button type="submit" name="btn_cadastrar">Cadastrar</button>

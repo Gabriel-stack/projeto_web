@@ -14,6 +14,10 @@ const nota = document.querySelectorAll('.notas .orgNotas .nota');
 const notaPesquisa = document.querySelectorAll('.resultado-pesquisa .nota');
 const opcaoNota = document.querySelector('.opcao-nota');
 const fecharOpNota = document.querySelector('.opcao-nota .fecharOp'); 
+const fecharOpMarc = document.querySelector('.fecharMarc'); 
+const pegarIdMarcador = document.querySelectorAll('.marcador');
+const opcaoMarc = document.querySelector('.opcao-marcador');
+const idMarc = document.getElementById('idEditaMarc');
 plus.addEventListener('click', function(event){
     event.preventDefault();
     corpo.style.backgroundColor = 'black';
@@ -95,13 +99,23 @@ fecharOpNota.addEventListener('click', function(event){
     conteudo.style.opacity = '1';
     opcaoNota.style.display = 'none';
 })
-btn_editar.addEventListener('click', function(event){
-    opcaoNota.style.display = 'none';
+
+for(i = 0; i<pegarIdMarcador.length; i++){
+  pegarIdMarcador[i].addEventListener('click', function(event){
+    event.preventDefault();
+    corpo.style.backgroundColor = 'black';
+    conteudo.style.pointerEvents = 'none';
+    conteudo.style.opacity = '0.6';
+    idMarc.value = this.id;
+    console.log('testre');
+    opcaoMarc.style.display = 'flex';
 })
-// fecharNotaExpandir.addEventListener('click', function(event){
-//     corpo.style.backgroundColor = 'white';
-//     conteudo.style.pointerEvents = 'all';
-//     conteudo.style.opacity = '1';
-//     notaExpandir.style.opacity = '1';
-//     notaExpandir.style.display = 'none';
-// })
+}
+fecharOpMarc.addEventListener('click', function(event){
+    corpo.style.backgroundColor = 'white';
+    conteudo.style.pointerEvents = 'all';
+    conteudo.style.opacity = '1';
+    opcaoMarc.style.display = 'none';
+})
+
+

@@ -119,7 +119,7 @@
 			$sql = $pdo->prepare("UPDATE marcador SET nomeMarcador = :n WHERE idUsuario = :iu AND idMarcador = :i");
 			$sql->bindValue(":n", $nomeMarcador);
 			$sql->bindValue(":iu", $id_user);
-			$sql->bindValue(":im", $idMarcador);
+			$sql->bindValue(":i", $idMarcador);
 			if($sql->execute()){
 				return true;
 			}else{
@@ -128,18 +128,16 @@
 		}
 		public function excluirMarcador($id_user, $idMarcador){
 			global $pdo;
-			$sql = $pdo->prepare("DELETE * FROM marcador WHERE idUsuario = :iu AND idMarcador = :im");
+			$notas = Usuario::listarNotas($idMarcador);
+			for($i = 0; $i < count($notas); $i++){
+				if($notas[$i][3] == $idMarcador){
+					Usuario::excluirNota($idMarcador, $notas[$i][0], $id_user);
+				}
+			}
+			$sql = $pdo->prepare("DELETE  FROM marcador WHERE marcador.idUsuario = :iu AND marcador.idMarcador = :im");
 			$sql->bindValue("iu", $id_user);
 			$sql->bindValue("im", $idMarcador);
-			$sql->execute();
-			if($sql->rowCount() == 0){
-				$u = new Usuario();
-				$nota = $u->listarNotas($idMarcador);
-				for($i = 0; $i < count($nota); $i++){
-					if($nota[$i][3] == $idMarcador){
-						$u->excluirNota($idMarcador, $nota[$i][0]);
-					}
-				}
+			if($sql->execute()){
 				return true;
 			}else{
 				return false;
@@ -184,22 +182,20 @@
 				return false;
 			}
 		}
-		public function excluirNota($idMarcador, $idNota){
+		public function excluirNota($idMarcador, $idNota, $id_user){
 			global $pdo;
-			$sql = $pdo->prepare("DELETE * FROM notas WHERE idMarcador = :im AND idNota = :iNota");
+			$cmd = $pdo->prepare("SELECT * FROM arquivos WHERE idNota = :i");
+			$cmd->bindValue(":i", $idNota);
+			$cmd->execute();
+			$arq = $cmd->fetchAll(PDO::FETCH_NUM);
+			for($j = 0; $j < count($arq); $j++){
+				$nomeArquivo = $arq[$j][1];
+				@unlink('../painel/uploads/usuario'.$id_user.'/'.$idNota.$nomeArquivo);
+			}
+			$sql = $pdo->prepare("DELETE  FROM notas WHERE notas.idMarcador = :im AND notas.idNota = :iNota");
 			$sql->bindValue("im", $idMarcador);
 			$sql->bindValue("iNota", $idNota);
-			$sql->execute();
-			if($sql->rowCount() == 0){
-				$u = new Usuario();
-				$arq = $u->listarArquivos($idNota);
-				if($sql != null) {
-					for($i = 0; $i < count($arq); $i++){
-						if($arq[$i][3] == $idNota){
-							$u->excluirArquivo($idNota, $arq[$i][0]);
-						}
-					}
-				}
+			if($sql->execute()){
 				return true;
 			}else{
 				return false;
@@ -229,46 +225,38 @@
 			}
 		}
 		public function adicionarArquivo($idNota, $nomeArquivo, $arquivo, $id_user){
-			global $pdo;
-			if($file['type'] != 'file/exe'){
-                $tamanho = intval($file['size'] / 1024);
-                if($tamanho < 100000){
-                    $sql = $pdo->prepare("INSERT INTO arquivos (idNota, nomeArquivo, Arquivo) VALUES (:i, :n, :a)");
-					$sql->bindValue(":i", $idNota);
-					$sql->bindValue(":n", $nomeArquivo);
-					$sql->bindValue(":a", $arquivo);
-					$sql->execute();
-					if($sql->rowCount() == 0){
-						return false;
+			$tamanho = intval($file['size'] / 1024);
+			if($tamanho < 100000){
+				global $pdo;
+				$sql = $pdo->prepare("INSERT INTO arquivos (idNota, nomeArquivo, arquivo) VALUES (:i, :n, :a)");
+				$sql->bindValue(":i", $idNota);
+				$sql->bindValue(":a", $arquivo);
+				$sql->bindValue(":n", $nomeArquivo);
+				if(!$sql->execute()){
+					return false;
+				}else{
+					if(move_uploaded_file($arquivo['tmp_name'], 'D:/xampp/htdocs/projeto_Web/painel/uploads/usuario'.$id_user.'/'.$idNota.$nomeArquivo)){
+						return $arquivo['name']; 
 					}else{
-						if(move_uploaded_file($arquivo['tmp_name'], '../painel/uploads/usuario'.$id_user.'/'.$arquivo['name'])){
-							return $arquivo['name']; 
-						}else{
-							return false;
-						}
+						return false;
 					}
-                }else{
-                    return false;
-                }
-            }else{
-                return false;
-            }
+				}
+			}else{
+				return false;
+			}
 		}
-		public function excluirArquivo($idNota, $idArquivo){
-			$u = new Usuario();
-			$arq = $u->listarArquivos($idNota);
+		public function excluirArquivo($idNota, $idArquivo, $nomeArquivo, $id_user){
+			$arq = Usuario::listarArquivos($idNota);
 			for($i = 0; $i < count($arq); $i++){
 				if($arq[$i][0] == $idArquivo){
-					$arquivo = $arq[$i][2];
-					@unlink('../painel/arquivos/'.$arquivo['name']);
+					@unlink('../painel/uploads/usuario'.$id_user.'/'.$idNota.$nomeArquivo);
+					break;
 				}
 			}
 			global $pdo;
-			$sql = $pdo->prepare("DELETE * FROM arquivos WHERE idNota = :iNota AND idArquivo = :ia");
-			$sql->bindValue("iNota", $idNota);
-			$sql->bindValue("ia", $idArquivo);
-			$sql->execute();
-			if($sql->rowCount() == 0){
+			$sql = $pdo->prepare("DELETE  FROM arquivos WHERE arquivos.idArquivo = :ia");
+			$sql->bindValue("ia", $idArquivo);	
+			if($sql->execute()){
 				return true;
 			}else{
 				return false;
@@ -294,6 +282,24 @@
 				return $sql->fetch(PDO::FETCH_ASSOC);
 			}else{
 				return false;
+			}
+		}
+		public function pegarMarcador($idMarcador){
+			global $pdo;
+			$sql = $pdo->prepare("SELECT * FROM marcador WHERE idMarcador = :i");
+			$sql->bindValue(":i", $idMarcador);
+			$sql->execute();
+			if($sql->rowCount() > 0){
+				return $sql->fetch(PDO::FETCH_ASSOC);
+			}else{
+				return false;
+			}
+		}
+		public function pegaIdNota(){
+			global $pdo;
+			$sql = $pdo->prepare("SELECT idNota from notas where idNota = (SELECT max(idNota) from notas)");
+			if($sql->execute()){
+				return $sql->fetch(PDO::FETCH_ASSOC);
 			}
 		}
 	}

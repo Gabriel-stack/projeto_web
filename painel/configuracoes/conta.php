@@ -25,12 +25,13 @@
         <div class="conteudo">
             <header class="conteudo-header">
                 <div class="imagem">
-                    <a href="../../index.html">
+                    <a href="../../">
                         <img class ="logo" src="../../img/logo-branca.png"></img>
                     </a>
                 </div>
+                <input type="checkbox" id="toggle">
+                <label for="toggle">&#9776;</label>
                 <nav class="navegacao">
-                    <i class="fas fa-bars fa-2x"></i>
                     <ul>
                         <li><a href="../notas.php">VOLTAR</a></li>
                         <li><a href="../../php/logoff.php">SAIR</a></li>
@@ -38,12 +39,10 @@
                 </nav>
             </header>
             <div class="menu">
-                <i class="fas fa-arrow-right"></i>
                 <ul>
-                    <li><a href="?painel=perfil">Perfil</a></li>
-                    <li><a href="?painel=privacidade">Segurança</a></li>
-                    <li><a href="?painel=tema">Temas</a></li>
-                    <li><a href="?painel=termo_uso">Termos de uso</a></li>
+                    <li><a  title="perfil" href="?painel=perfil"><i class="fas fa-user" ></i></a></li>
+                    <li><a title="segurança" href="?painel=privacidade"><i class="fas fa-user-shield" ></i></a></li>
+                    <li><a  title="termo de uso" href="?painel=termo_uso"><i class="fas fa-scroll" ></i></a></li>
                 </ul>
                 <i class="fas left"></i>
             </div>

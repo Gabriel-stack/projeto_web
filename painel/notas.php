@@ -19,6 +19,13 @@
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="marcador-nota">
@@ -77,6 +84,8 @@
 						</label>
 					</form>
 				</div>
+				<input type="checkbox" id="toggle">
+   				 <label for="toggle">&#9776;</label>
 				<nav class="navegacao">
 					<ul>
 						<li><a href="../php/logoff.php">SAIR</a></li>
@@ -86,9 +95,9 @@
 			</header>
 			<div class="menu">
 				<ul class ="botoes-menu">
-					<a href="" id="plus"><li><i class="fas fa-plus"></i></li></a>
-					<a href="" id="sync"><li><i class="fas fa-sync-alt"></i></li></a>
-					<a href="" id="slider"><li><i class="fas fa-sliders-h"></i></li></a>
+					<a href="" id="plus"><li><i class="fas fa-plus" title="adicionar marcador"></i></li></a>
+					<a href="notas.php" id="sync"><li><i class="fas fa-sync-alt" title="recarregar"></i></li></a>
+					<a href="" id="slider"><li><i class="fas fa-sliders-h" title="configurações de exibição"></i></li></a>
 				</ul>
 			</div>
 			<div class="notas">
@@ -122,19 +131,15 @@
 					}else{
 						if($u->listarMarcador($_SESSION['id']) == false){
 							?>
-							<p>Seja Bem-Vindo ao ambiente das suas notas!</p>
+							<p>Seja Bem-Vindo ao ambiente das suas anotações!</p>
 							<?php
 						}else{
 							$marc = $u->listarMarcador($_SESSION['id']);
 							for($i = 0; $i < count($marc); $i++){
 								?>
-								<label for="<?php echo $marc[$i][0]; ?>">
-									<div class="configuracoes-notas">
-										<i class="far fa-edit fa-3x"></i>
-										<i class="fas fa-eraser fa-3x"></i>
-									</div>
-									<fieldset>
-										<legend><?php echo $marc[$i][1]; ?></legend>
+								<label class="<?php echo $marc[$i][1]?>">
+									<fieldset >
+										<legend class="marcador" id="<?php echo $marc[$i][0]?>"><?php echo $marc[$i][1];?></legend>
 										<div class="orgNotas">
 											<?php
 												if($u->listarNotas($marc[$i][0])){
@@ -158,19 +163,28 @@
 														$conteudoNota = addslashes($_POST['conteudoNota']);
 														$cor = $_POST['cor'];
 														$idMarc = $_POST['idMarc'];
-														$arquivo = $_POST['arquivo'];
 														if(!empty($_POST['titulo'])){
-															if(!$u->adicionarNota($idMarc, $titulo, $conteudoNota, $cor)){
+															if($u->adicionarNota($idMarc, $titulo, $conteudoNota, $cor)){
+																if(isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])){	
+																	$arquivo = $_FILES['arquivo'];
+																	$nomeArquivo = $_FILES['arquivo']['name'];
+																	$pID = $u->pegaIdNota();
+																	$u->adicionarArquivo($pID['idNota'], $nomeArquivo, $arquivo, $_SESSION['id']);
+																	header('Location: notas.php');
+																	die();
+																}else{
+																	header('Location: notas.php');
+																	die();
+																}
+															}else{
 																?>
 																<script>
 																	alert("O campo não pode ficar vazio!");
 																</script>
 																<?php
-															}else{
-																header('Location: notas.php');
-																die();
 															}
 														}
+														
 													}
 												?>
 											</div>
@@ -193,12 +207,12 @@
 		</div>
 		<div class="janelaAddNota">
 			<img src="../img/close.svg" alt="" class="janelaAddNotaFalse">
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				<input type="text" name="idMarc" value=""  id="idMarc" required>
 				<input type="text" placeholder="insira o título" name="titulo" id="titulo">
-				<input type="textarea" placeholder="insira sua descrição" name="conteudoNota" id="descricao">
+				<textarea name="conteudoNota" id="descricao" cols="40" rows="10" maxlength="100000" style=""></textarea>
 				<input type="color" name="cor">
-				<input type="file" name="arquivo">
+				<input type="file" name="arquivo" id="arquivo">
 				<input type="submit" name="addNota" value="SALVAR">
 			</form>
 		</div>
@@ -210,7 +224,25 @@
 				<button type="submit" name="btn_excluir" id="btn_excluir">Excluir</button>
 			</form>
 		</div>
+		<div class="opcao-marcador">
+			<img src="../img/close.svg" alt="" class="fecharMarc">
+			<form method="POST" >
+				<input type="text" name="idMarcEditar" id="idEditaMarc" value="" required  style="display:none;">
+				<button type="submit" name="btn_editarMarc" id="btn_editar">Editar</button>
+				<button type="submit" name="btn_excluirMarc" id="btn_excluir">Excluir</button>
+			</form>
+		</div>
 		<?php
+			if(isset($_POST['btn_editarMarc'])){
+				$_SESSION['idM'] = $_POST['idMarcEditar'];
+					echo "<script>location.href='janelaMarcador.php';</script>";
+					exit;
+			}
+			if(isset($_POST['btn_excluirMarc'])){
+				$_SESSION['idM'] = $_POST['idMarcEditar'];
+					echo "<script>location.href='janelaExcluirMarcador.php';</script>";
+					exit;
+			}
 			if(isset($_POST['btn_editar']) and isset($_POST['idNota'])){
 				$_SESSION['idN'] = $_POST['idNota'];
 					echo "<script>location.href='janelaNota.php';</script>";

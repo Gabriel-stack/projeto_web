@@ -22,9 +22,10 @@ html, body{
     height: 60px;
 }
 .navegacao{
-    display: inline;
+    display: block;
 }
-.navegacao > i{
+.conteudo-header > label,
+.conteudo-header > #toggle{
     display: none;
 }
 .navegacao > ul {
@@ -57,21 +58,39 @@ html, body{
 }
 
 @media (max-width: 941px){
-    .navegacao > i{
-        display: inline;
-        margin-right: 10px;
-        color: #ffffff;
-    }
-    .navegacao > ul {
-        flex-direction: column;
+    .navegacao {
+        justify-content: center;
+        flex-direction: row;
         display: none;
 
     }
+    .conteudo-header > label{
+        font-size: 50px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+        color: #ffffff;
+    }
+#toggle:checked ~ .navegacao{
+        position: relative;
+        order: 1;
+        z-index: 9999;
+       display: flex;
+       justify-content: center;
+        flex-direction: row;
+       width: 100%;
+       height: 100%;
+       background-color: #261347;
+    }
+
     .navegacao > ul > li{
-        width: 100vw;
         text-align: center;
         border: none;
-        width: 100%;
-        display: inline-block;
+        }
+    .navegacao > ul > li > a{
+        height: 100%;
+        font-weight: bolder;
+        color: #ffffff;
+        text-decoration: none;
     }
 }

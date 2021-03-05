@@ -55,28 +55,14 @@
     text-align: center;
     color: white;
     font-weight: bolder;
-    width: 170px;
-    height: 46px;
+    width: 270px;
+    height: 58px;
+    outline: none;
     background-color: #f65a00;
     border: 1px solid;
     border-radius: 10px;
 }
-/* .conteudo-pagina > .proxima-sessao{
-    width: 100%;
-    justify-content:center;
-    text-align: center;
-}
-.conteudo-pagina > .proxima-sessao > a{
-    justify-content: center;
-    width: 100%;
-}
-.conteudo-pagina > .proxima-sessao > a > i{
-    padding-top: 5px;
-    color: white;
-    text-align: center;
-    width: 48px;
-    height: 48px;
-} */
+
 .info{
     display: flex;
     justify-content: space-around;
@@ -87,7 +73,6 @@
 }
 .info > .carac{
   display: inline-block;
-  /* box-shadow: 2px 2px 2px 2px #cccccc; */
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;

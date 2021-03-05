@@ -4,8 +4,9 @@
             <img class ="logo" src="img/logo-branca.png"></img>
         </a>
     </div>
+    <input type="checkbox" id="toggle">
+    <label for="toggle">&#9776;</label>
     <nav class="navegacao">
-        <i class="fas fa-bars fa-2x"></i>
         <ul>
             <li><a href="<?php echo INCLUDE_PATH; ?>">INÍCIO</a></li>
             <li><a href="<?php echo INCLUDE_PATH; ?>sobre.php">SOBRE</a></li>

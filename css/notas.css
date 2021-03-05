@@ -77,7 +77,7 @@ body{
 }
 .notas{
     grid-area: notas;
-    background-color: #f0eaea;
+    background-color: #f0f0f0;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -85,8 +85,10 @@ body{
     justify-content: center;
 }
 .notas > p{
+    text-align: center;
+    font-family: monospace;
     color: black;
-    font-size: 30px;
+    font-size: 50px;
     width: 100%;
 }
 .marcador-nota{
@@ -159,7 +161,7 @@ body{
 }
 .configuracoes-notas{
     height: inherit;
-    background-color: #ffffff88;
+    background-color: #ffffff;
     margin: 20px 0;
     display: flex;
     flex-direction: column;
@@ -185,6 +187,7 @@ body{
 }
 
 .notas > label > fieldset > legend{
+    cursor: pointer;
     margin-top: 10px;
     padding: 0 10px;
     font-size: 20pt;
@@ -195,7 +198,7 @@ body{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -229,29 +232,33 @@ body{
 .adicionar_nota > i:hover{
     cursor: pointer;
 }
+.opcao-marcador,
 .opcao-nota{
     justify-content: center;
-    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
     display: none;
     z-index: 9999;
+    min-width: 300px;
     width: 30%;
     height: 40%;
     background-color: #ffffff;
     animation: surgir;
 }
-.janelaNotaExpandir{
+.janelaNotaExpandir,
+.janelaNotaExcluir{
     padding: 20px 8px;
     box-shadow: 10px 5px 5px 3px #cccccc;
     flex-direction: column;
     width: 50%;
+    min-width: 400px;
     display: flex;
     z-index: 9999;
     background-color: #ffffff;
     animation: surgir;
+    animation-duration: 800ms;
 }
 .janelaAddNota{
     top: 50%;
@@ -261,29 +268,61 @@ body{
     display: none;
     z-index: 9999;
     width: 50%;
-    height: 80%;
+    min-width: 300px;
+    height: auto;
     background-color: #ffffff;
     animation: surgir;
+    animation-duration: 800ms;
 }
+.janelaNotaExcluir > form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
 .janelaNotaExpandir > form,
 .janelaAddNota > form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
 }
+.janelaNotaExcluir > form > .inp{
+    display: flex;
+    flex-direction: column;
+}
+.janelaNotaExcluir > form > .msg{
+    display: block;
+}
 .janelaNotaExpandir > form > input,
+.janelaNotaExcluir > form > .inp > input,
 .janelaAddNota > form > input{
     display: inline-block;
 }
-.janelaNotaExpandir > form > #titulo,
-.janelaAddNota > form > #titulo{
+.janelaNotaExpandir > form > #titulo{
     text-transform: uppercase;
     text-align: center;
     font-family: cursive;
     font-weight: bolder;
     font-size: 23pt;
+    margin: 10px 0;
+    width: 90%;
+    padding: 8px;
+    border: none;
+}
+.janelaAddNota > form > #titulo{
+    text-transform: uppercase;
+    text-align: center;
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: 14pt;
     margin: 10px 0;
     width: 90%;
     padding: 8px;
@@ -306,19 +345,20 @@ body{
 .janelaNotaExpandir > form > #descricao:focus{
     font-size: 14pt;
 }
-/* .janelaNotaExpandir > form > #idMarcMostrar, */
 .janelaAddNota > form > #idMarc{
     display: none;
 }
+.opcao-marcador > form,
 .opcao-nota > form{
     display: flex;
-    justify-content:center;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
 }
+.opcao-marcador > form > button,
 .opcao-nota > form > button{
-    margin-top: 15px;
+    margin: 5px 5px;
     padding: 20px 20px;
     cursor: pointer;
     width: 100;
@@ -329,17 +369,19 @@ body{
     border-style: none;
     outline-style: none;
 }
+.opcao-marcador > form > button:nth-of-type(1),
 .opcao-nota > form > button:nth-of-type(1){
     background-color: rgb(15, 195, 39);
 }
+.opcao-marcador > form > button:nth-of-type(2),
 .opcao-nota > form > button:nth-of-type(2){
     background-color:rgb(195, 21, 15);
 }
 
 .janelaNotaExpandir > form > input[type="submit"],
+.janelaNotaExcluir > form > .inp > input[type="submit"],
 .janelaAddNota > form > input[type="submit"]{
-    margin-top: 15px;
-    margin-right: 40px;
+    margin: 5px 5px;
     align-self: flex-end;
     cursor: pointer;
     width: 120px;
@@ -350,6 +392,15 @@ body{
     font-weight: bold;
     border-style: none;
     outline-style: none;
+}
+.fecharOp,
+.fecharMarc{
+    flex-direction: row;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    justify-self: flex-end;
+    display: inline-block;
 }
 .notaExpandirFalse{
     width: 30px;
@@ -364,7 +415,62 @@ body{
     width: 30px;
     height: 30px;
 }
+.arquivos{
+    border: 2px solid black;
+    display: flex;
+    direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 150px;
+    overflow: auto;
+}
+.arquivos > .arq{
+    border: 2px solid black;
+    justify-items: center;
+    margin: 5px;
+    padding-top: 2px;
+    width: 120px;
+    height: 135px;
+    text-align: center;
+}
+.arquivos > .arq > p{
+    margin: 2px 0;
+    padding: 0;
+}
+.arquivos > .arq > form > button{
+    margin: 2.5px 0;
+}
+.arquivos > .arq > form > button > a{
+    text-decoration: none;
+}
 @keyframes surgir{
     from{opacity: 1;}
     from{opacity: 0;}
+}
+
+@media (max-width: 941px){
+    .pesquisa{
+        width: 300px;
+    }
+    .conteudo-header > .imagem{
+        display: none;
+    }
+    .navegacao {
+        flex-direction: row-reverse;
+        display: none;
+
+    }
+    .conteudo-header > label{
+        font-size: 50px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+        color: #ffffff;
+    }
+    #toggle:checked ~ .navegacao{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background-color: #261347;
+     }
 }

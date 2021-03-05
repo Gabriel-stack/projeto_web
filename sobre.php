@@ -1,4 +1,7 @@
-<?php include('config.php'); ?>
+<?php 
+    session_start();
+    include('config.php'); 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>

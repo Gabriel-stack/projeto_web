@@ -51,5 +51,6 @@
         <?php
             include('footer.php');
         ?>
+        <script src="js/inicio.js"></script>
     </body>
 </html>
